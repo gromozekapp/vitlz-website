@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Cookie consent banner + image format upgrade
+    // Cookie consent modal + image format upgrade
     initCookieConsent();
     upgradeImagesToModernFormats();
     
@@ -288,36 +288,59 @@ document.addEventListener('DOMContentLoaded', function() {
             if (stored && ver === CONSENT_VERSION) return;
         } catch (e) {}
         
-        const banner = document.createElement('div');
-        banner.className = 'cookie-consent';
-        banner.setAttribute('role', 'region');
-        banner.setAttribute('aria-label', 'Cookie consent');
-        banner.innerHTML = `
-            <div class="cookie-consent__text">
-                We use cookies to improve your experience. See our <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer" style="color:#a5b4fc;text-decoration:underline;">Privacy Policy</a>.
-            </div>
-            <div class="cookie-consent__actions">
-                <button type="button" class="cookie-consent__btn cookie-accept">Accept</button>
-                <button type="button" class="cookie-consent__btn cookie-consent__btn--secondary cookie-decline">Decline</button>
+        const modal = document.createElement('div');
+        modal.className = 'cookie-modal';
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('aria-label', 'Cookie consent');
+        modal.innerHTML = `
+            <div class="cookie-modal__dialog" tabindex="-1">
+                <div class="cookie-modal__title">Cookies</div>
+                <div class="cookie-modal__text">
+                    We use cookies to improve your experience. See our
+                    <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">Privacy Policy</a>.
+                </div>
+                <div class="cookie-modal__actions">
+                    <button type="button" class="cookie-modal__btn cookie-accept">Accept</button>
+                    <button type="button" class="cookie-modal__btn cookie-modal__btn--secondary cookie-decline">Decline</button>
+                </div>
             </div>
         `;
-        document.body.appendChild(banner);
-        const acceptBtn = banner.querySelector('.cookie-accept');
-        const declineBtn = banner.querySelector('.cookie-decline');
+        document.body.appendChild(modal);
+        const dialog = modal.querySelector('.cookie-modal__dialog');
+        const acceptBtn = modal.querySelector('.cookie-accept');
+        const declineBtn = modal.querySelector('.cookie-decline');
+        const closeModal = () => {
+            try { document.body.style.overflow = ''; } catch (e) {}
+            modal.remove();
+        };
+        try { document.body.style.overflow = 'hidden'; } catch (e) {}
+        if (dialog) dialog.focus();
         acceptBtn.addEventListener('click', () => {
             try {
                 localStorage.setItem('cookie_consent', 'accepted');
                 localStorage.setItem('cookie_consent_v', CONSENT_VERSION);
             } catch (e) {}
-            banner.remove();
+            closeModal();
         });
         declineBtn.addEventListener('click', () => {
             try {
                 localStorage.setItem('cookie_consent', 'declined');
                 localStorage.setItem('cookie_consent_v', CONSENT_VERSION);
             } catch (e) {}
-            banner.remove();
+            closeModal();
         });
+        // Close on backdrop click or Esc
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                declineBtn.click();
+            }
+        });
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                declineBtn.click();
+            }
+        }, { once: true });
     }
     
     function upgradeImagesToModernFormats() {
