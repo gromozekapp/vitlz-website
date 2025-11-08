@@ -17,20 +17,21 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     
     <!-- Meta tags для SEO -->
-    <meta name="description" content="Premium EU‑made formulas in a bold retro‑futurist design. Explore our Probiotic Complex, Multivitamins & Minerals, and dedicated Women's and Men's tablets.">
+    <meta name="description" content="IMAGINE. CREATE. EVOLVE. VITLZ is a new world built on friendship, sustainability, honesty and the value of each person — more than supplements, an embodiment of hope.">
     <meta name="keywords" content="VITLZ, supplements, probiotics, multivitamins, wellness, EU-made">
     <meta name="author" content="VITLZ Team">
     
     <!-- Open Graph tags -->
     <meta property="og:title" content="VITLZ Supplements - Retro‑Futurist Wellness">
-    <meta property="og:description" content="Premium EU‑made formulas in a bold retro‑futurist design.">
+    <meta property="og:description" content="IMAGINE. CREATE. EVOLVE. VITLZ is a new world built on friendship, sustainability, honesty and the value of each person — more than supplements, an embodiment of hope.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourdomain.com">
     <meta property="og:image" content="images/Probiotic_can.jpg">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <!-- Заголовок -->
-    <header class="site-header sticky-header">
+    <header class="site-header">
         <div class="container">
             <div class="site-branding">
                 <a href="#" class="site-title">VITLZ</a>
@@ -38,7 +39,7 @@
 
             <nav class="site-navigation">
                 <ul>
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#home" aria-current="page">Home</a></li>
                     <li><a href="#products">Products</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -46,24 +47,29 @@
             </nav>
 
             <div class="header-cta">
-                <a href="#products" class="cta-button">Shop formulas</a>
+                <a href="#products" class="cta-button" aria-label="Shop our formulas">Shop formulas</a>
             </div>
         </div>
     </header>
 
-    <div class="site-content">
+    <main id="main" class="site-content">
         <!-- Hero Section -->
         <section id="home" class="hero-section retro-grid">
+            <canvas id="space-bg-hero" aria-hidden="true"></canvas>
             <div class="container">
-                <div class="hero-content fade-in-up">
-                    <h1>VITLZ Supplements — Retro‑Futurist Wellness</h1>
-                    <p>Premium EU‑made formulas in a bold retro‑futurist design. Explore our Probiotic Complex, Multivitamins & Minerals, and dedicated Women's and Men's tablets.</p>
+                <div class="hero-content will-animate">
+                    <h1 class="neon-gradient">IMAGINE. CREATE. EVOLVE.</h1>
+                    <p>Imagine. What would the world be like if everyone fought for humanity — and for every single person? How would we live, how would we communicate?</p>
+                    <p>Friendship, sustainability, honesty, and the value of each of us — for the future, for progress in science, nature, and culture.</p>
+                    <p>The new world of the VITLZ line was born from this vision. It's more than just supplements — it's a living embodiment of our hopes.</p>
+                    <p>Taste it, try it for yourself, let this world enter your life — become part of it, and truly experience it.</p>
+                    <p>✨ <span class="neon-gradient">Let's make the world better together.</span></p>
                     <div class="hero-buttons">
-                        <a href="#products" class="cta-button">Explore products</a>
-                        <a href="#about" class="cta-button outline">Learn more</a>
+                        <a href="#products" class="cta-button" aria-label="Explore VITLZ products">Explore products</a>
+                        <a href="#about" class="cta-button outline" aria-label="Learn more about VITLZ">Learn more</a>
                     </div>
                 </div>
-                <div class="hero-images grid-2x2 fade-in-up">
+                <div class="hero-images will-animate">
                     <img src="images/Probiotic_can.jpg" alt="VITLZ Probiotic Complex can" loading="eager" class="rounded-lg shadow-lg hover-scale" />
                     <img src="images/Multi_can.jpg" alt="VITLZ Multivitamins and Minerals can" loading="lazy" class="rounded-lg shadow-lg hover-scale" />
                     <img src="images/Womans_can.jpg" alt="VITLZ Women's Ultra Tablet can" loading="lazy" class="rounded-lg shadow-lg hover-scale" />
@@ -73,77 +79,98 @@
         </section>
 
         <!-- Products Section -->
-        <section id="products" class="content-section">
+        <section id="products" class="content-section dark-section">
             <div class="container">
                 <header class="section-header">
                     <h2 class="section-title">Formulas</h2>
                     <p class="section-subtitle">Four targeted supplements for daily support.</p>
                 </header>
                 <div class="products-grid">
-                    <article class="product-card glass fade-in-up">
+                    <article class="product-card glass will-animate">
                         <img src="images/Probiotic_can.jpg" alt="VITLZ Probiotic Complex can" class="product-image" loading="lazy" />
-                        <h3>Probiotic Complex</h3>
-                        <p>Lactobacillus, Bifidobacterium & Streptococcus complex.</p>
+                        <h3 class="product-title neon-gradient">PROBIOTIC COMPLEX</h3>
+                        <p class="product-tagline">The Power of Microbiome.</p>
+                        <p class="product-desc">Advanced probiotic blend with Lactobacillus, Bifidobacterium, and Streptococcus thermophilus to strengthen gut health and immunity. Balance from within — for a stronger you.</p>
                     </article>
-                    <article class="product-card glass fade-in-up">
+                    <article class="product-card glass will-animate">
                         <img src="images/Multi_can.jpg" alt="VITLZ Multivitamins and Minerals can" class="product-image" loading="lazy" />
-                        <h3>Multivitamins & Minerals</h3>
-                        <p>A daily complex of essential vitamins and minerals.</p>
+                        <h3 class="product-title neon-gradient">MULTIVITAMINS &amp; MINERALS COMPLEX</h3>
+                        <p class="product-tagline">Science in Every Tablet.</p>
+                        <p class="product-desc">A precise formula of 13 vitamins and 10 minerals to maintain daily wellbeing. Includes Lutein, Biotin, and Chromium for metabolism, beauty, and mental clarity. Balanced nutrition — every single day.</p>
                     </article>
-                    <article class="product-card glass fade-in-up">
+                    <article class="product-card glass will-animate">
                         <img src="images/Womans_can.jpg" alt="VITLZ Women's Ultra Tablet can" class="product-image" loading="lazy" />
-                        <h3>Women's Ultra Tablet</h3>
-                        <p>Targeted daily support for women.</p>
+                        <h3 class="product-title neon-gradient">WOMEN'S ULTRA TABLET</h3>
+                        <p class="product-tagline">Beauty. Balance. Inner Strength.</p>
+                        <p class="product-desc">For women who lead with brilliance and grace. Contains Vitamins A, C, D3, E, Iron, Calcium, Selenium, and Bioflavonoids to support vitality, hormone balance, and glowing skin. Your daily ritual for harmony of body and mind.</p>
                     </article>
-                    <article class="product-card glass fade-in-up">
+                    <article class="product-card glass will-animate">
                         <img src="images/Mans_can.jpg" alt="VITLZ Men's Premium Complex Tablet can" class="product-image" loading="lazy" />
-                        <h3>Men's Premium Complex</h3>
-                        <p>Daily vitality formula for men.</p>
+                        <h3 class="product-title neon-gradient">MEN'S PREMIUM COMPLEX TABLET</h3>
+                        <p class="product-tagline">Power. Focus. Vitality.</p>
+                        <p class="product-desc">Designed for modern men who never stop evolving. This complex blends Vitamins A, D, E, K, full B-group, Zinc, Selenium, and Ginseng for energy, immunity, and focus. With Saw Palmetto and Ginkgo Biloba, it boosts strength and concentration for ultimate performance.</p>
                     </article>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="content-section bg-muted">
+        <section id="about" class="content-section dark-section">
             <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2 class="section-title">About VITLZ</h2>
-                        <p>Manufactured in the European Union on the basis of the order by Pharmalogic LTD, 9130 Bulgaria, s. Bliznatsi, k.k Kamchiya 21-4.</p>
-                        <p>Use: adults (or as indicated on label) 1 tablet daily. Store in original package, in a dry place, at room temperature. Do not exceed the recommended daily dose.</p>
-                        <p>Do not use food supplements as a replacement for a healthy and balanced diet. Keep out of reach of children.</p>
+                <header class="section-header">
+                    <h2 class="mega-title neon-gradient">EU QUALITY. CERTIFIED. TRUSTED.</h2>
+                    <p class="about-lead">All VITLZ products are manufactured in the European Union, under GMP standards, exclusively for Pharmalogic LTD (Bulgaria, EU). We ensure full transparency, premium sourcing, and verified safety — every capsule, every tablet.</p>
+                </header>
+                <div class="about-badges">
+                    <div class="badge-card">
+                        <div class="badge-icon icon-blue" aria-hidden="true">
+                            <!-- Shield -->
+                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+                        </div>
+                        <div class="badge-label">EU‑Made</div>
                     </div>
-                    <div class="quality-card glass">
-                        <h3>Quality & Assurance</h3>
-                        <ul>
-                            <li>EU‑made quality</li>
-                            <li>Carefully selected ingredients</li>
-                            <li>Designed for daily use</li>
-                        </ul>
-                        <p class="disclaimer">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
+                    <div class="badge-card">
+                        <div class="badge-icon icon-pink" aria-hidden="true">
+                            <!-- Leaf -->
+                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20s3-9 12-9c9 0 8 9 8 9-6 0-10 0-14 0S2 20 2 20z"/><path d="M10 13c0 6-4 7-4 7"/></svg>
+                        </div>
+                        <div class="badge-label">Non‑GMO</div>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon icon-purple" aria-hidden="true">
+                            <!-- Ribbon -->
+                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M8 14l-2 7 6-3 6 3-2-7"/></svg>
+                        </div>
+                        <div class="badge-label">GMP Certified</div>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon icon-cyan" aria-hidden="true">
+                            <!-- Check circle -->
+                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+                        </div>
+                        <div class="badge-label">Vegan‑Friendly</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Universe Section -->
-        <section id="universe" class="content-section retro-grid">
+        <section id="universe" class="content-section retro-grid dark-section">
             <div class="container">
                 <header class="section-header">
-                    <h2 class="section-title">VITLZ Universe</h2>
+                    <h2 class="section-title neon-gradient">VITLZ Universe</h2>
                     <p class="section-subtitle">Our retro‑futurist story, ethos, and community.</p>
                 </header>
                 <div class="universe-grid">
-                    <article class="universe-card glass fade-in-up">
+                    <article class="universe-card glass will-animate">
                         <h3>Our Story</h3>
                         <p>Born at the intersection of science and imagination, VITLZ channels a retro‑futurist spirit: bold design, rigorous EU‑made quality, and everyday wellness engineered for the world ahead. From probiotic synergy to complete daily complexes, we craft reliable formulas with a forward‑looking lens—so your routine feels as good as it looks.</p>
                     </article>
-                    <article class="universe-card glass fade-in-up">
+                    <article class="universe-card glass will-animate">
                         <h3>Ethos</h3>
                         <p>Clarity over clutter. Potent, essential ingredients. Transparent guidance. Designed to elevate modern life without noise.</p>
                     </article>
-                    <article class="universe-card glass fade-in-up">
+                    <article class="universe-card glass will-animate">
                         <h3>Community</h3>
                         <p>Join our universe for tips, routines, and behind‑the‑scenes drops. <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer" class="story-link">vitlz.eu</a> · <a href="https://instagram.com" target="_blank" rel="noreferrer" class="story-link">Instagram</a></p>
                     </article>
@@ -152,13 +179,13 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="content-section">
+        <section id="contact" class="content-section dark-section">
             <div class="container">
-                <h2 class="section-title">Contact</h2>
+                <h2 class="section-title neon-gradient">Contact</h2>
                 <p class="contact-text">Questions? Email us at <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Join our universe at <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.</p>
             </div>
         </section>
-    </div>
+    </main>
 
     <!-- Подвал -->
     <footer class="site-footer">
@@ -208,15 +235,13 @@
             const observer = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in-up');
+                        entry.target.classList.add('is-visible');
                     }
                 });
             }, observerOptions);
             
-            const fadeElements = document.querySelectorAll('.fade-in-up');
-            fadeElements.forEach(el => {
-                observer.observe(el);
-            });
+            const willAnimateElements = document.querySelectorAll('.will-animate');
+            willAnimateElements.forEach(el => observer.observe(el));
             
             // Sticky header effect
             window.addEventListener('scroll', function() {
