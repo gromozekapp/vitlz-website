@@ -748,6 +748,15 @@ body {
 }
 
 /* Дополнительные стили для страниц */
+/* Override header text colors to ensure readability */
+.site-header .site-title,
+.site-header .site-navigation a {
+    color: #111;
+}
+.site-header.sticky-header .site-title,
+.site-header.sticky-header .site-navigation a {
+    color: #111;
+}
 .page-content {
     max-width: 800px;
     margin: 0 auto;

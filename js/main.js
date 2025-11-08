@@ -83,6 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuToggle.addEventListener('click', function() {
             siteNavigation.classList.toggle('active');
             this.classList.toggle('active');
+            const expanded = siteNavigation.classList.contains('active') ? 'true' : 'false';
+            this.setAttribute('aria-expanded', expanded);
         });
     }
     
@@ -94,9 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         if (scrollTop > 100) {
-            header.classList.add('scrolled');
+            header.classList.add('sticky-header');
         } else {
-            header.classList.remove('scrolled');
+            header.classList.remove('sticky-header');
         }
         
         lastScrollTop = scrollTop;
@@ -189,24 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add typing effect to hero title
-    const heroTitle = document.querySelector('.hero-content h1');
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                heroTitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-        
-        // Start typing effect after a short delay
-        setTimeout(typeWriter, 500);
-    }
+    // (typing effect removed for accessibility)
     
     // Add scroll progress indicator
     const progressBar = document.createElement('div');
@@ -232,6 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add back to top button
     const backToTop = document.createElement('button');
     backToTop.innerHTML = '↑';
+    backToTop.setAttribute('aria-label', 'Back to top');
     backToTop.style.cssText = `
         position: fixed;
         bottom: 30px;
@@ -281,4 +267,73 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
+    
+    // Cookie consent banner + image format upgrade
+    initCookieConsent();
+    upgradeImagesToModernFormats();
+    
+    function initCookieConsent() {
+        const CONSENT_VERSION = 'v2';
+        try {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('consent') === 'reset') {
+                localStorage.removeItem('cookie_consent');
+                localStorage.removeItem('cookie_consent_v');
+            }
+        } catch (e) {}
+        
+        try {
+            const stored = localStorage.getItem('cookie_consent');
+            const ver = localStorage.getItem('cookie_consent_v');
+            if (stored && ver === CONSENT_VERSION) return;
+        } catch (e) {}
+        
+        const banner = document.createElement('div');
+        banner.className = 'cookie-consent';
+        banner.setAttribute('role', 'region');
+        banner.setAttribute('aria-label', 'Cookie consent');
+        banner.innerHTML = `
+            <div class="cookie-consent__text">
+                We use cookies to improve your experience. See our <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer" style="color:#a5b4fc;text-decoration:underline;">Privacy Policy</a>.
+            </div>
+            <div class="cookie-consent__actions">
+                <button type="button" class="cookie-consent__btn cookie-accept">Accept</button>
+                <button type="button" class="cookie-consent__btn cookie-consent__btn--secondary cookie-decline">Decline</button>
+            </div>
+        `;
+        document.body.appendChild(banner);
+        const acceptBtn = banner.querySelector('.cookie-accept');
+        const declineBtn = banner.querySelector('.cookie-decline');
+        acceptBtn.addEventListener('click', () => {
+            try {
+                localStorage.setItem('cookie_consent', 'accepted');
+                localStorage.setItem('cookie_consent_v', CONSENT_VERSION);
+            } catch (e) {}
+            banner.remove();
+        });
+        declineBtn.addEventListener('click', () => {
+            try {
+                localStorage.setItem('cookie_consent', 'declined');
+                localStorage.setItem('cookie_consent_v', CONSENT_VERSION);
+            } catch (e) {}
+            banner.remove();
+        });
+    }
+    
+    function upgradeImagesToModernFormats() {
+        const imgs = Array.from(document.querySelectorAll('img[src$=".jpg"], img[src$=".jpeg"], img[src$=".png"]'));
+        imgs.forEach((img) => {
+            const url = new URL(img.getAttribute('src'), window.location.href);
+            const srcNoExt = url.pathname.replace(/\.(jpe?g|png)$/i, '');
+            tryFormat(img, `${srcNoExt}.avif`, () => {}, () => {
+                tryFormat(img, `${srcNoExt}.webp`);
+            });
+        });
+        function tryFormat(img, candidateSrc, onOk, onFail) {
+            const test = new Image();
+            test.onload = () => { img.src = candidateSrc; if (onOk) onOk(); };
+            test.onerror = () => { if (onFail) onFail(); };
+            test.src = candidateSrc;
+        }
+    }
 });
