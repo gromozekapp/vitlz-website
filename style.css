@@ -762,23 +762,36 @@ body {
 .cookie-modal {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.25);
     z-index: 10003;
     display: flex;
-    align-items: center;
+    align-items: flex-end; /* bottom sheet */
     justify-content: center;
     padding: 16px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.cookie-modal.is-visible {
+    opacity: 1;
 }
 
 .cookie-modal__dialog {
     width: 100%;
-    max-width: 640px;
+    max-width: 720px;
     background: #0f0f23;
     color: #fff;
-    border-radius: 16px;
+    border-radius: 16px 16px 0 0;
     box-shadow: 0 20px 60px rgba(0,0,0,0.35);
     padding: 24px;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
     border: 1px solid rgba(255,255,255,0.1);
+    transform: translateY(110%);
+    transition: transform 0.35s ease;
+}
+
+.cookie-modal.is-visible .cookie-modal__dialog {
+    transform: translateY(0);
 }
 
 .cookie-modal__title {

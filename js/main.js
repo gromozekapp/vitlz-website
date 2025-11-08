@@ -315,20 +315,26 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.remove();
         };
         try { document.body.style.overflow = 'hidden'; } catch (e) {}
-        if (dialog) dialog.focus();
+        // animate in (bottom sheet)
+        requestAnimationFrame(() => {
+            modal.classList.add('is-visible');
+            if (dialog) dialog.focus();
+        });
         acceptBtn.addEventListener('click', () => {
             try {
                 localStorage.setItem('cookie_consent', 'accepted');
                 localStorage.setItem('cookie_consent_v', CONSENT_VERSION);
             } catch (e) {}
-            closeModal();
+            modal.classList.remove('is-visible');
+            setTimeout(closeModal, 250);
         });
         declineBtn.addEventListener('click', () => {
             try {
                 localStorage.setItem('cookie_consent', 'declined');
                 localStorage.setItem('cookie_consent_v', CONSENT_VERSION);
             } catch (e) {}
-            closeModal();
+            modal.classList.remove('is-visible');
+            setTimeout(closeModal, 250);
         });
         // Close on backdrop click or Esc
         modal.addEventListener('click', (e) => {
