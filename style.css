@@ -92,6 +92,75 @@
     background: rgba(255,255,255,0.08);
     border-color: rgba(255,255,255,0.6);
 }
+/* Order modal */
+.order-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10005;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+.order-modal.is-visible { opacity: 1; pointer-events: auto; }
+.order-modal__dialog {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    background: #0f0f23;
+    color: #fff;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    transform: scale(0.98) translateY(10px);
+    transition: transform 0.25s ease;
+    outline: none;
+    padding: 20px 20px 16px;
+}
+.order-modal.is-visible .order-modal__dialog { transform: scale(1) translateY(0); }
+.order-modal__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.4);
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.order-modal__close:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); }
+.order-modal__header { padding: 8px 4px 8px; }
+.order-modal__title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.25rem;
+    color: #ffffff;
+}
+.order-modal__product { color: #a3b2d1; margin-bottom: 0.75rem; }
+.order-modal__form { padding-top: 4px; }
+.order-modal__actions { display: flex; justify-content: center; padding-top: 4px; }
+.order-modal input, .order-modal textarea {
+    background: rgba(255,255,255,0.02);
+    color: #fff;
+    border-color: rgba(255,255,255,0.16);
+}
+.order-modal input:focus, .order-modal textarea:focus {
+    border-color: #67e8f9;
+}
+.order-submit {
+    width: 100%;
+    background: linear-gradient(90deg, #67e8f9, #a78bfa 45%, #ff66cc 90%);
+}
 @media (max-width: 768px) {
     .learn-modal__dialog {
         border-radius: 14px;
@@ -211,6 +280,19 @@ body {
 .header-cta .cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.lang-switcher {
+    margin-left: 0.75rem;
+    padding: 0.45rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #e1e5e9;
+    background: #fff;
+    color: #111;
+    font-weight: 600;
+}
+.site-header.sticky-header .lang-switcher {
+    background: #fff;
 }
 
 .site-title {
@@ -433,6 +515,8 @@ body {
     padding: var(--space-4);
     text-align: center;
     transition: all 0.3s ease;
+    display: flex;              /* ensure equal alignment inside */
+    flex-direction: column;     /* allow pushing actions to bottom */
 }
 
 .product-card:hover {
@@ -454,6 +538,16 @@ body {
 .product-image:hover {
     transform: scale(1.05);
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+.product-actions { 
+    margin-top: auto;           /* push Buy button to the bottom */
+    padding-top: 1rem;
+}
+.product-actions .buy-button {
+    width: 100%;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
 }
 
 .product-card h3 {
@@ -631,6 +725,31 @@ body {
 }
 .dark-section .story-link:hover {
     color: #a78bfa;
+}
+.social-links {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+}
+.social-link {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #a3b2d1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.social-link svg { width: 22px; height: 22px; }
+.social-link:hover {
+    transform: translateY(-2px);
+    color: #ffffff;
+    border-color: rgba(240,147,251,0.35);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+    background: rgba(255,255,255,0.1);
 }
 .dark-section .contact-text {
     color: #cbd5e1;

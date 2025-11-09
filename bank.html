@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20251108">
+    <link rel="stylesheet" href="style.css?v=20251109">
     <meta name="description" content="VITLZ Vitamins Bank: expert, clinically-informed nutrition articles with summaries and full content.">
 </head>
 <body>
@@ -19,14 +19,20 @@
             </div>
             <nav class="site-navigation">
                 <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#products">Products</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html#home" data-i18n="nav.home">Home</a></li>
+                    <li><a href="index.html#products" data-i18n="nav.products">Products</a></li>
+                    <li><a href="index.html#about" data-i18n="nav.about">About</a></li>
+                    <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-cta">
-                <a href="index.html#products" class="cta-button">Shop formulas</a>
+                <a href="index.html#products" class="cta-button" data-i18n="header.shop">Shop formulas</a>
+                <select id="lang-switcher" class="lang-switcher" aria-label="Language" onchange="window.setLanguage && window.setLanguage(this.value)">
+                    <option value="en">EN</option>
+                    <option value="de">DE</option>
+                    <option value="bg">BG</option>
+                    <option value="ro">RO</option>
+                </select>
             </div>
         </div>
     </header>
@@ -35,13 +41,13 @@
         <section class="content-section dark-section">
             <div class="container">
                 <header class="section-header">
-                    <h1 class="mega-title neon-gradient">Vitamins Bank</h1>
-                    <p class="about-lead">Our articles are co‑authored with nutritionists, based on clinical data, and verified by our specialists.</p>
+                    <h1 class="mega-title neon-gradient" data-i18n="bank.title">Vitamins Bank</h1>
+                    <p class="about-lead" data-i18n="bank.subtitle">Our articles are co‑authored with nutritionists, based on clinical data, and verified by our specialists.</p>
                 </header>
 
                 <div id="articles-grid" class="cards-grid"></div>
                 <div style="text-align:center; margin-top: 1.5rem;">
-                    <button id="load-more" class="cta-button">Show more</button>
+                    <button id="load-more" class="cta-button" data-i18n="bank.show_more">Show more</button>
                 </div>
 
             </div>
@@ -63,9 +69,10 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=20251108"></script>
-    <script src="js/bank.data.js?v=20251108"></script>
-    <script src="js/bank.js?v=20251108"></script>
+    <script src="js/i18n.js?v=20251109"></script>
+    <script src="js/main.js?v=20251109"></script>
+    <script src="js/bank.data.js?v=20251109"></script>
+    <script src="js/bank.js?v=20251109"></script>
 </body>
 </html>
 

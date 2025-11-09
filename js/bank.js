@@ -270,7 +270,7 @@
         el.innerHTML = `
             <img class="bank-thumb" src="${getImagePath(index)}" alt="${escapeHtml(article.title)}" loading="lazy" onerror="this.remove()" />
             <h3>${escapeHtml(article.title)}</h3>
-            <p><strong>Summary:</strong> ${escapeHtml(article.summary || '')}</p>
+            <p><strong>${(window.__t && __t('bank.summary')) || 'Summary:'}</strong> ${escapeHtml(article.summary || '')}</p>
         `;
         // hide image if not found to avoid odd placeholders
         const img = el.querySelector('img.bank-thumb');

@@ -91,6 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Header scroll effect
     const header = document.querySelector('.site-header');
     let lastScrollTop = 0;
+    // Fallback language switch binding (in case i18n init missed)
+    const langSwitcher = document.getElementById('lang-switcher');
+    if (langSwitcher) {
+        langSwitcher.addEventListener('change', function() {
+            if (window.setLanguage) {
+                window.setLanguage(this.value || 'en');
+            }
+        });
+    }
     
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -110,6 +119,80 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', function() {
         document.body.classList.add('loaded');
     });
+    
+    // -------- Order modal (Buy) ----------
+    initOrderModal();
+    function initOrderModal() {
+        const buyButtons = document.querySelectorAll('.buy-button');
+        const modal = document.getElementById('order-modal');
+        const dialog = modal ? modal.querySelector('.order-modal__dialog') : null;
+        const closeBtn = modal ? modal.querySelector('.order-modal__close') : null;
+        const productLabel = modal ? modal.querySelector('#order-modal-product') : null;
+        const productInput = modal ? modal.querySelector('#order-product-input') : null;
+        const form = modal ? modal.querySelector('#order-form') : null;
+        if (!buyButtons.length || !modal || !dialog || !closeBtn || !form) return;
+
+        const emailTo = 'info@vitlz.eu';
+        const endpoint = window.FORMSPREE_ENDPOINT || null; // e.g. https://formspree.io/f/xxxx
+
+        function open(productName) {
+            if (productLabel) productLabel.textContent = productName || '';
+            if (productInput) productInput.value = productName || '';
+            modal.classList.add('is-visible');
+            try { document.body.style.overflow = 'hidden'; } catch (e) {}
+            setTimeout(() => dialog.focus(), 0);
+        }
+        function close() {
+            modal.classList.remove('is-visible');
+            try { document.body.style.overflow = ''; } catch (e) {}
+        }
+
+        buyButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const product = btn.getAttribute('data-product') || 'VITLZ Product';
+                open(product);
+            });
+        });
+        closeBtn.addEventListener('click', close);
+        modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('is-visible')) close(); });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = (document.getElementById('order-name') || {}).value || '';
+            const email = (document.getElementById('order-email') || {}).value || '';
+            const phone = (document.getElementById('order-phone') || {}).value || '';
+            const comment = (document.getElementById('order-comment') || {}).value || '';
+            const product = (document.getElementById('order-product-input') || {}).value || '';
+            if (!name || !email || !phone) {
+                showNotification((window.__t && __t('order.required')) || 'Please fill in the required fields', 'error');
+                return;
+            }
+            const payload = { name, email, phone, comment, product, page: window.location.href };
+            try {
+                if (endpoint) {
+                    const res = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!res.ok) throw new Error(String(res.status));
+                    showNotification((window.__t && __t('order.success')) || 'Request sent. We will contact you soon!', 'success');
+                } else {
+                    const subject = `Order request: ${product}`;
+                    const body =
+                        `Product: ${product}\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nComment: ${comment}\nPage: ${window.location.href}`;
+                    const href = `mailto:${encodeURIComponent(emailTo)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.location.href = href;
+                    showNotification((window.__t && __t('order.mailto')) || 'Email client opened to send your request', 'info');
+                }
+                form.reset();
+                close();
+            } catch (err) {
+                showNotification((window.__t && __t('order.failed')) || 'Failed to submit. Please try again later.', 'error');
+            }
+        });
+    }
     
     // Utility functions
     function isValidEmail(email) {

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Стили темы -->
-    <link rel="stylesheet" href="style.css?v=20251108">
+    <link rel="stylesheet" href="style.css?v=20251109">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -39,15 +39,21 @@
 
             <nav class="site-navigation">
                 <ul>
-                    <li><a href="#home" aria-current="page">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home" aria-current="page" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#products" data-i18n="nav.products">Products</a></li>
+                    <li><a href="#about" data-i18n="nav.about">About</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
                 </ul>
             </nav>
 
             <div class="header-cta">
-                <a href="#products" class="cta-button" aria-label="Shop our formulas">Shop formulas</a>
+                <a href="#products" class="cta-button" aria-label="Shop our formulas" data-i18n="header.shop">Shop formulas</a>
+                <select id="lang-switcher" class="lang-switcher" aria-label="Language" onchange="window.setLanguage && window.setLanguage(this.value)">
+                    <option value="en">EN</option>
+                    <option value="de">DE</option>
+                    <option value="bg">BG</option>
+                    <option value="ro">RO</option>
+                </select>
             </div>
         </div>
     </header>
@@ -58,15 +64,15 @@
             <canvas id="space-bg-hero" aria-hidden="true"></canvas>
             <div class="container">
                 <div class="hero-content will-animate">
-                    <h1 class="neon-gradient">IMAGINE. CREATE. EVOLVE.</h1>
-                    <p>Imagine. What would the world be like if everyone fought for humanity — and for every single person? How would we live, how would we communicate?</p>
-                    <p>Friendship, sustainability, honesty, and the value of each of us — for the future, for progress in science, nature, and culture.</p>
-                    <p>The new world of the VITLZ line was born from this vision. It's more than just supplements — it's a living embodiment of our hopes.</p>
-                    <p>Taste it, try it for yourself, let this world enter your life — become part of it, and truly experience it.</p>
-                    <p>✨ <span class="neon-gradient">Let's make the world better together.</span></p>
+                    <h1 class="neon-gradient" data-i18n="hero.h1">IMAGINE. CREATE. EVOLVE.</h1>
+                    <p data-i18n="hero.p1">Imagine. What would the world be like if everyone fought for humanity — and for every single person? How would we live, how would we communicate?</p>
+                    <p data-i18n="hero.p2">Friendship, sustainability, honesty, and the value of each of us — for the future, for progress in science, nature, and culture.</p>
+                    <p data-i18n="hero.p3">The new world of the VITLZ line was born from this vision. It's more than just supplements — it's a living embodiment of our hopes.</p>
+                    <p data-i18n="hero.p4">Taste it, try it for yourself, let this world enter your life — become part of it, and truly experience it.</p>
+                    <p data-i18n="hero.p5" data-i18n-html>✨ <span class="neon-gradient">Let's make the world better together.</span></p>
                     <div class="hero-buttons">
-                        <a href="#products" class="cta-button" aria-label="Explore VITLZ products">Explore products</a>
-                        <a href="bank.html" class="cta-button outline" aria-label="Vitamins Bank">Learn more?</a>
+                        <a href="#products" class="cta-button" aria-label="Explore VITLZ products" data-i18n="hero.btn.explore">Explore products</a>
+                        <a href="bank.html" class="cta-button outline" aria-label="Vitamins Bank" data-i18n="hero.btn.bank">Learn more?</a>
                     </div>
                 </div>
                 <div class="hero-images will-animate">
@@ -82,33 +88,74 @@
         <section id="products" class="content-section dark-section">
             <div class="container">
                 <header class="section-header">
-                    <h2 class="section-title">Formulas</h2>
-                    <p class="section-subtitle">Four targeted supplements for daily support.</p>
+                    <h2 class="section-title" data-i18n="products.title">Formulas</h2>
+                    <p class="section-subtitle" data-i18n="products.subtitle">Four targeted supplements for daily support.</p>
                 </header>
                 <div class="products-grid">
                     <article class="product-card glass will-animate">
                         <img src="images/Probiotic_can.jpg" alt="VITLZ Probiotic Complex can" class="product-image" loading="lazy" />
-                        <h3 class="product-title neon-gradient">PROBIOTIC COMPLEX</h3>
-                        <p class="product-tagline">The Power of Microbiome.</p>
-                        <p class="product-desc">Advanced probiotic blend with Lactobacillus, Bifidobacterium, and Streptococcus thermophilus to strengthen gut health and immunity. Balance from within — for a stronger you.</p>
+                        <h3 class="product-title neon-gradient" data-i18n="product.probiotic.title">PROBIOTIC COMPLEX</h3>
+                        <p class="product-tagline" data-i18n="product.probiotic.tagline">The Power of Microbiome.</p>
+                        <p class="product-desc" data-i18n="product.probiotic.desc">Advanced probiotic blend with Lactobacillus, Bifidobacterium, and Streptococcus thermophilus to strengthen gut health and immunity. Balance from within — for a stronger you.</p>
+                        <div class="product-actions">
+                            <button type="button" class="cta-button buy-button" data-product="PROBIOTIC COMPLEX" aria-label="Buy PROBIOTIC COMPLEX">
+                                <!-- cart icon -->
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right:8px;">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 12.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                                <span data-i18n="buy">Buy</span>
+                            </button>
+                        </div>
                     </article>
                     <article class="product-card glass will-animate">
                         <img src="images/Multi_can.jpg" alt="VITLZ Multivitamins and Minerals can" class="product-image" loading="lazy" />
-                        <h3 class="product-title neon-gradient">MULTIVITAMINS &amp; MINERALS COMPLEX</h3>
-                        <p class="product-tagline">Science in Every Tablet.</p>
-                        <p class="product-desc">A precise formula of 13 vitamins and 10 minerals to maintain daily wellbeing. Includes Lutein, Biotin, and Chromium for metabolism, beauty, and mental clarity. Balanced nutrition — every single day.</p>
+                        <h3 class="product-title neon-gradient" data-i18n="product.multi.title">MULTIVITAMINS &amp; MINERALS COMPLEX</h3>
+                        <p class="product-tagline" data-i18n="product.multi.tagline">Science in Every Tablet.</p>
+                        <p class="product-desc" data-i18n="product.multi.desc">A precise formula of 13 vitamins and 10 minerals to maintain daily wellbeing. Includes Lutein, Biotin, and Chromium for metabolism, beauty, and mental clarity. Balanced nutrition — every single day.</p>
+                        <div class="product-actions">
+                            <button type="button" class="cta-button buy-button" data-product="MULTIVITAMINS &amp; MINERALS COMPLEX" aria-label="Buy MULTIVITAMINS &amp; MINERALS COMPLEX">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right:8px;">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 12.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                                <span data-i18n="buy">Buy</span>
+                            </button>
+                        </div>
                     </article>
                     <article class="product-card glass will-animate">
                         <img src="images/Womans_can.jpg" alt="VITLZ Women's Ultra Tablet can" class="product-image" loading="lazy" />
-                        <h3 class="product-title neon-gradient">WOMEN'S ULTRA TABLET</h3>
-                        <p class="product-tagline">Beauty. Balance. Inner Strength.</p>
-                        <p class="product-desc">For women who lead with brilliance and grace. Contains Vitamins A, C, D3, E, Iron, Calcium, Selenium, and Bioflavonoids to support vitality, hormone balance, and glowing skin. Your daily ritual for harmony of body and mind.</p>
+                        <h3 class="product-title neon-gradient" data-i18n="product.women.title">WOMEN'S ULTRA TABLET</h3>
+                        <p class="product-tagline" data-i18n="product.women.tagline">Beauty. Balance. Inner Strength.</p>
+                        <p class="product-desc" data-i18n="product.women.desc">For women who lead with brilliance and grace. Contains Vitamins A, C, D3, E, Iron, Calcium, Selenium, and Bioflavonoids to support vitality, hormone balance, and glowing skin. Your daily ritual for harmony of body and mind.</p>
+                        <div class="product-actions">
+                            <button type="button" class="cta-button buy-button" data-product="WOMEN'S ULTRA TABLET" aria-label="Buy WOMEN'S ULTRA TABLET">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right:8px;">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 12.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                                <span data-i18n="buy">Buy</span>
+                            </button>
+                        </div>
                     </article>
                     <article class="product-card glass will-animate">
                         <img src="images/Mans_can.jpg" alt="VITLZ Men's Premium Complex Tablet can" class="product-image" loading="lazy" />
-                        <h3 class="product-title neon-gradient">MEN'S PREMIUM COMPLEX TABLET</h3>
-                        <p class="product-tagline">Power. Focus. Vitality.</p>
-                        <p class="product-desc">Designed for modern men who never stop evolving. This complex blends Vitamins A, D, E, K, full B-group, Zinc, Selenium, and Ginseng for energy, immunity, and focus. With Saw Palmetto and Ginkgo Biloba, it boosts strength and concentration for ultimate performance.</p>
+                        <h3 class="product-title neon-gradient" data-i18n="product.men.title">MEN'S PREMIUM COMPLEX TABLET</h3>
+                        <p class="product-tagline" data-i18n="product.men.tagline">Power. Focus. Vitality.</p>
+                        <p class="product-desc" data-i18n="product.men.desc">Designed for modern men who never stop evolving. This complex blends Vitamins A, D, E, K, full B-group, Zinc, Selenium, and Ginseng for energy, immunity, and focus. With Saw Palmetto and Ginkgo Biloba, it boosts strength and concentration for ultimate performance.</p>
+                        <div class="product-actions">
+                            <button type="button" class="cta-button buy-button" data-product="MEN'S PREMIUM COMPLEX TABLET" aria-label="Buy MEN'S PREMIUM COMPLEX TABLET">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right:8px;">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 12.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                                <span data-i18n="buy">Buy</span>
+                            </button>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -158,21 +205,42 @@
         <section id="universe" class="content-section retro-grid dark-section">
             <div class="container">
                 <header class="section-header">
-                    <h2 class="section-title neon-gradient">VITLZ Universe</h2>
-                    <p class="section-subtitle">Our retro‑futurist story, ethos, and community.</p>
+                    <h2 class="section-title neon-gradient" data-i18n="universe.title">VITLZ Universe</h2>
+                    <p class="section-subtitle" data-i18n="universe.subtitle">Our retro‑futurist story, ethos, and community.</p>
                 </header>
                 <div class="universe-grid">
                     <article class="universe-card glass will-animate">
-                        <h3>Our Story</h3>
-                        <p>Born at the intersection of science and imagination, VITLZ channels a retro‑futurist spirit: bold design, rigorous EU‑made quality, and everyday wellness engineered for the world ahead. From probiotic synergy to complete daily complexes, we craft reliable formulas with a forward‑looking lens—so your routine feels as good as it looks.</p>
+                        <h3 data-i18n="universe.story.title">Our Story</h3>
+                        <p data-i18n="universe.story.text">Born at the intersection of science and imagination, VITLZ channels a retro‑futurist spirit: bold design, rigorous EU‑made quality, and everyday wellness engineered for the world ahead. From probiotic synergy to complete daily complexes, we craft reliable formulas with a forward‑looking lens—so your routine feels as good as it looks.</p>
                     </article>
                     <article class="universe-card glass will-animate">
-                        <h3>Ethos</h3>
-                        <p>Clarity over clutter. Potent, essential ingredients. Transparent guidance. Designed to elevate modern life without noise.</p>
+                        <h3 data-i18n="universe.ethos.title">Ethos</h3>
+                        <p data-i18n="universe.ethos.text">Clarity over clutter. Potent, essential ingredients. Transparent guidance. Designed to elevate modern life without noise.</p>
                     </article>
                     <article class="universe-card glass will-animate">
-                        <h3>Community</h3>
-                        <p>Join our universe for tips, routines, and behind‑the‑scenes drops. <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer" class="story-link">vitlz.eu</a> · <a href="https://instagram.com" target="_blank" rel="noreferrer" class="story-link">Instagram</a></p>
+                        <h3 data-i18n="universe.community.title">Community</h3>
+                        <p data-i18n="universe.community.text">Join our universe for tips, routines, and behind‑the‑scenes drops.</p>
+                        <p><a href="https://www.vitlz.eu" target="_blank" rel="noreferrer" class="story-link">vitlz.eu</a></p>
+                        <div class="social-links">
+                            <a class="social-link tiktok" href="https://www.tiktok.com/@vitlz.universe?_r=1&_t=ZG-91E5HfThrg8" target="_blank" rel="noreferrer" aria-label="TikTok">
+                                <!-- TikTok icon -->
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M16.5 3c.3 1.6 1.5 3 3 3.5v3.1c-1.2-.1-2.4-.5-3.5-1.2v5.9c0 3.8-3.1 6.7-6.9 6.7-1.6 0-3.1-.5-4.2-1.5C3.2 18.3 3 16.9 3 15.7c0-3.8 3.1-6.7 6.9-6.7.4 0 .8 0 1.2.1v3.4c-.4-.2-.8-.3-1.2-.3-1.8 0-3.3 1.5-3.3 3.4s1.5 3.4 3.3 3.4 3.3-1.5 3.3-3.4V3h3.4z"/>
+                                </svg>
+                            </a>
+                            <a class="social-link instagram" href="https://www.instagram.com/vitlz_universe?igsh=bm8wOGNlNWYxdnFr&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram">
+                                <!-- Instagram icon -->
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11.001A5.5 5.5 0 0 1 12 7.5zm0 2a3.5 3.5 0 1 0 .001 7.001A3.5 3.5 0 0 0 12 9.5zm5-2.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+                                </svg>
+                            </a>
+                            <a class="social-link youtube" href="https://www.youtube.com/@vitlz_universe" target="_blank" rel="noreferrer" aria-label="YouTube">
+                                <!-- YouTube icon -->
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M23.5 6.2a3.1 3.1 0 0 0-2.2-2.2C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.3.5A3.1 3.1 0 0 0 .5 6.2 32.8 32.8 0 0 0 0 12c0 1.9.2 3.8.5 5.8.3 1.1 1.1 1.9 2.2 2.2 2 .5 9.3.5 9.3.5s7.3 0 9.3-.5a3.1 3.1 0 0 0 2.2-2.2c.3-2 .5-3.9.5-5.8 0-1.9-.2-3.8-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/>
+                                </svg>
+                            </a>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -181,8 +249,8 @@
         <!-- Contact Section -->
         <section id="contact" class="content-section dark-section">
             <div class="container">
-                <h2 class="section-title neon-gradient">Contact</h2>
-                <p class="contact-text">Questions? Email us at <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Join our universe at <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.</p>
+                <h2 class="section-title neon-gradient" data-i18n="contact.title">Contact</h2>
+                <p class="contact-text" data-i18n="contact.text.html" data-i18n-html>Questions? Email us at <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Join our universe at <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.</p>
             </div>
         </section>
     </main>
@@ -196,16 +264,50 @@
                 </div>
                 
                 <nav class="footer-navigation">
-                    <a href="#products">Products</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#products" data-i18n="nav.products">Products</a>
+                    <a href="#about" data-i18n="nav.about">About</a>
+                    <a href="#contact" data-i18n="nav.contact">Contact</a>
                 </nav>
             </div>
         </div>
     </footer>
 
+    <!-- Order Modal -->
+    <div class="order-modal" id="order-modal" aria-hidden="true">
+        <div class="order-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="order-modal-title" tabindex="-1">
+            <button type="button" class="order-modal__close" aria-label="Close">×</button>
+            <header class="order-modal__header">
+                <h3 id="order-modal-title" class="order-modal__title neon-gradient" data-i18n="order.title">Place an order</h3>
+                <div class="order-modal__product" id="order-modal-product">—</div>
+            </header>
+            <form id="order-form" class="order-modal__form">
+                <input type="hidden" name="product" id="order-product-input" />
+                <div class="form-group">
+                    <label for="order-name" data-i18n="order.name">Name *</label>
+                    <input id="order-name" name="name" type="text" required />
+                </div>
+                <div class="form-group">
+                    <label for="order-email" data-i18n="order.email">Email *</label>
+                    <input id="order-email" name="email" type="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="order-phone" data-i18n="order.phone">Phone *</label>
+                    <input id="order-phone" name="phone" type="tel" required />
+                </div>
+                <div class="form-group">
+                    <label for="order-comment" data-i18n="order.comment">Comment (optional)</label>
+                    <textarea id="order-comment" name="comment" rows="3" placeholder="Your notes or questions..." data-i18n="order.comment" data-i18n-attr="placeholder"></textarea>
+                </div>
+                <div class="order-modal__actions">
+                    <button type="submit" class="order-submit cta-button" data-i18n="order.submit">Submit request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- JavaScript -->
-    <script src="js/main.js?v=20251108"></script>
+    <script src="js/i18n.js?v=20251109"></script>
+    <script src="js/main.js?v=20251109"></script>
     
     <script>
         // Дополнительный JavaScript для статического сайта
