@@ -35,21 +35,21 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Basic validation
             if (!name || !email || !message) {
-                showNotification('Пожалуйста, заполните все поля', 'error');
+                showNotification('Please fill in all fields', 'error');
                 return;
             }
             
             if (!isValidEmail(email)) {
-                showNotification('Пожалуйста, введите корректный email', 'error');
+                showNotification('Please enter a valid email', 'error');
                 return;
             }
             
             // Simulate form submission
-            showNotification('Отправляем сообщение...', 'info');
+            showNotification('Sending message...', 'info');
             
             // Here you would typically send the data to your server
             setTimeout(() => {
-                showNotification('Сообщение успешно отправлено!', 'success');
+                showNotification('Message sent successfully!', 'success');
                 this.reset();
             }, 2000);
         });

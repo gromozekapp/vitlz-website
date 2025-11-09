@@ -3,11 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "description": "Static site for VITLZ with image conversion utilities",
+  "type": "module",
   "scripts": {
-    "convert-images": "node scripts/convert-images.js"
+    "convert-images": "node scripts/convert-images.js",
+    "fetch:bank-images": "node scripts/fetch-healthis-images.js",
+    "fetch:bank-articles": "node scripts/fetch-healthis-articles.js",
+    "overlay:bank27": "node scripts/overlay-bank-27.js"
   },
   "devDependencies": {
-    "sharp": "^0.33.3"
+    "sharp": "^0.33.3",
+    "cheerio": "^1.0.0",
+    "node-fetch": "^3.3.2"
   }
 }
 
