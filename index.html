@@ -34,7 +34,15 @@
     <header class="site-header">
         <div class="container">
             <div class="site-branding">
-                <a href="#" class="site-title">VITLZ</a>
+                <a href="index.html" class="site-logo" aria-label="VITLZ">
+                    <img src="images/logo-vitlz.svg" alt="VITLZ — The Future of Wellness" class="site-logo__img" loading="lazy" width="160" height="75">
+                </a>
+                <select id="lang-switcher" class="lang-switcher" aria-label="Language" onchange="window.setLanguage && window.setLanguage(this.value)">
+                    <option value="en">EN</option>
+                    <option value="de">DE</option>
+                    <option value="bg">BG</option>
+                    <option value="ro">RO</option>
+                </select>
             </div>
 
             <nav class="site-navigation">
@@ -48,12 +56,6 @@
 
             <div class="header-cta">
                 <a href="#products" class="cta-button" aria-label="Shop our formulas" data-i18n="header.shop">Shop formulas</a>
-                <select id="lang-switcher" class="lang-switcher" aria-label="Language" onchange="window.setLanguage && window.setLanguage(this.value)">
-                    <option value="en">EN</option>
-                    <option value="de">DE</option>
-                    <option value="bg">BG</option>
-                    <option value="ro">RO</option>
-                </select>
             </div>
         </div>
     </header>

@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VITLZ — Article</title>
+    <title data-i18n="post.page.title">VITLZ — Article</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20251108">
+    <link rel="stylesheet" href="style.css?v=20251109">
 </head>
 <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main" data-i18n="skip.to_content">Skip to content</a>
     <header class="site-header">
         <div class="container">
             <div class="site-branding">
-                <a href="index.html" class="site-title">VITLZ</a>
+                <a href="index.html" class="site-logo" aria-label="VITLZ">
+                    <img src="images/logo-vitlz.svg" alt="VITLZ — The Future of Wellness" class="site-logo__img" loading="lazy" width="160" height="75">
+                </a>
+                <select id="lang-switcher" class="lang-switcher" aria-label="Language" onchange="window.setLanguage && window.setLanguage(this.value)">
+                    <option value="en">EN</option>
+                    <option value="de">DE</option>
+                    <option value="bg">BG</option>
+                    <option value="ro">RO</option>
+                    <option value="ru">RU</option>
+                </select>
             </div>
             <nav class="site-navigation">
                 <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#products">Products</a></li>
-                    <li><a href="bank.html">Vitamins Bank</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html#home" data-i18n="nav.home">Home</a></li>
+                    <li><a href="index.html#products" data-i18n="nav.products">Products</a></li>
+                    <li><a href="bank.html" data-i18n="bank.title">Vitamins Bank</a></li>
+                    <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-cta">
-                <a href="index.html#products" class="cta-button">Shop formulas</a>
+                <a href="index.html#products" class="cta-button" data-i18n="header.shop">Shop formulas</a>
             </div>
         </div>
     </header>
@@ -44,20 +53,22 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-copyright">
-                    <p>&copy; 2024 VITLZ. All rights reserved.</p>
+                    <p data-i18n-html="footer.rights">&copy; 2024 VITLZ. All rights reserved.</p>
                 </div>
                 <nav class="footer-navigation">
-                    <a href="index.html#products">Products</a>
-                    <a href="index.html#about">About</a>
-                    <a href="index.html#contact">Contact</a>
+                    <a href="index.html#products" data-i18n="nav.products">Products</a>
+                    <a href="index.html#about" data-i18n="nav.about">About</a>
+                    <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
                 </nav>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js?v=20251108"></script>
-    <script src="js/bank.data.js?v=20251108"></script>
-    <script src="js/post.js?v=20251108"></script>
+    <script src="js/i18n.js?v=20251109"></script>
+    <script src="js/main.js?v=20251109"></script>
+    <script src="js/bank.data.js?v=20251109"></script>
+    <script src="js/bank.js?v=20251109"></script>
+    <script src="js/post.js?v=20251109"></script>
 </body>
 </html>
 

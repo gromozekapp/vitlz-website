@@ -1,0 +1,15 @@
+<svg width="240" height="110" viewBox="0 0 240 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">VITLZ</title>
+  <desc id="desc">VITLZ logo with gradient lettering and the tagline The Future of Wellness</desc>
+  <defs>
+    <linearGradient id="vitlzGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#67e8f9"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ff66cc"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="110" fill="none"/>
+  <text x="120" y="55" text-anchor="middle" font-family="Inter, 'Segoe UI', Roboto, sans-serif" font-size="48" font-weight="800" fill="url(#vitlzGradient)">VITLZ<tspan dy="-18" dx="4" font-size="18">®</tspan></text>
+  <text x="120" y="90" text-anchor="middle" font-family="Inter, 'Segoe UI', Roboto, sans-serif" font-size="18" fill="#99A4B7">The Future of Wellness</text>
+</svg>
+

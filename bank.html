@@ -15,7 +15,15 @@
     <header class="site-header">
         <div class="container">
             <div class="site-branding">
-                <a href="index.html" class="site-title">VITLZ</a>
+                <a href="index.html" class="site-logo" aria-label="VITLZ">
+                    <img src="images/logo-vitlz.svg" alt="VITLZ — The Future of Wellness" class="site-logo__img" loading="lazy" width="160" height="75">
+                </a>
+                <select id="lang-switcher" class="lang-switcher" aria-label="Language" onchange="window.setLanguage && window.setLanguage(this.value)">
+                    <option value="en">EN</option>
+                    <option value="de">DE</option>
+                    <option value="bg">BG</option>
+                    <option value="ro">RO</option>
+                </select>
             </div>
             <nav class="site-navigation">
                 <ul>
@@ -27,12 +35,6 @@
             </nav>
             <div class="header-cta">
                 <a href="index.html#products" class="cta-button" data-i18n="header.shop">Shop formulas</a>
-                <select id="lang-switcher" class="lang-switcher" aria-label="Language" onchange="window.setLanguage && window.setLanguage(this.value)">
-                    <option value="en">EN</option>
-                    <option value="de">DE</option>
-                    <option value="bg">BG</option>
-                    <option value="ro">RO</option>
-                </select>
             </div>
         </div>
     </header>
@@ -61,9 +63,9 @@
                     <p>&copy; 2024 VITLZ. All rights reserved.</p>
                 </div>
                 <nav class="footer-navigation">
-                    <a href="index.html#products">Products</a>
-                    <a href="index.html#about">About</a>
-                    <a href="index.html#contact">Contact</a>
+                    <a href="index.html#products" data-i18n="nav.products">Products</a>
+                    <a href="index.html#about" data-i18n="nav.about">About</a>
+                    <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
                 </nav>
             </div>
         </div>
