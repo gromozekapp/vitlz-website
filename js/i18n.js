@@ -6,6 +6,8 @@
             'nav.products': 'Products',
             'nav.about': 'About',
             'nav.contact': 'Contact',
+            'nav.choose': 'Navigate',
+            'nav.bank': 'Vitamins Bank',
             'skip.to_content': 'Skip to content',
             'header.shop': 'Shop formulas',
             'hero.h1': 'IMAGINE. CREATE. EVOLVE.',
@@ -18,6 +20,7 @@
             'hero.btn.bank': 'Learn more?',
             'products.title': 'Formulas',
             'products.subtitle': 'Four targeted supplements for daily support.',
+            'products.cta': 'Shop formulas',
             'product.probiotic.title': 'PROBIOTIC COMPLEX',
             'product.probiotic.tagline': 'The Power of Microbiome.',
             'product.probiotic.desc': 'Advanced probiotic blend with Lactobacillus, Bifidobacterium, and Streptococcus thermophilus to strengthen gut health and immunity. Balance from within — for a stronger you.',
@@ -68,6 +71,8 @@
             'nav.products': 'Produkte',
             'nav.about': 'Über uns',
             'nav.contact': 'Kontakt',
+            'nav.choose': 'Navigieren',
+            'nav.bank': 'Vitamins Bank',
             'skip.to_content': 'Direkt zum Inhalt',
             'header.shop': 'Formeln kaufen',
             'hero.h1': 'IMAGINE. CREATE. EVOLVE.',
@@ -80,6 +85,7 @@
             'hero.btn.bank': 'Mehr erfahren?',
             'products.title': 'Formeln',
             'products.subtitle': 'Vier zielgerichtete Nahrungsergänzungen für den Alltag.',
+            'products.cta': 'Formeln kaufen',
             'product.probiotic.title': 'PROBIOTIC COMPLEX',
             'product.probiotic.tagline': 'Die Kraft des Mikrobioms.',
             'product.probiotic.desc': 'Fortschrittliche probiotische Mischung mit Lactobacillus, Bifidobacterium und Streptococcus thermophilus zur Unterstützung von Darmgesundheit und Immunsystem.',
@@ -130,6 +136,8 @@
             'nav.products': 'Продукти',
             'nav.about': 'За нас',
             'nav.contact': 'Контакт',
+            'nav.choose': 'Навигация',
+            'nav.bank': 'Банка с витамини',
             'skip.to_content': 'Към съдържанието',
             'header.shop': 'Купи формули',
             'hero.h1': 'IMAGINE. CREATE. EVOLVE.',
@@ -142,6 +150,7 @@
             'hero.btn.bank': 'Научи повече?',
             'products.title': 'Формули',
             'products.subtitle': 'Четири насочени формули за всеки ден.',
+            'products.cta': 'Купи формули',
             'product.probiotic.title': 'PROBIOTIC COMPLEX',
             'product.probiotic.tagline': 'Силата на микробиома.',
             'product.probiotic.desc': 'Разширена комбинация от пробиотици — Lactobacillus, Bifidobacterium и Streptococcus thermophilus — за червата и имунитета.',
@@ -192,6 +201,8 @@
             'nav.products': 'Produse',
             'nav.about': 'Despre noi',
             'nav.contact': 'Contact',
+            'nav.choose': 'Navighează',
+            'nav.bank': 'Banca de vitamine',
             'skip.to_content': 'Sari la conținut',
             'header.shop': 'Cumpără formule',
             'hero.h1': 'IMAGINE. CREATE. EVOLVE.',
@@ -204,6 +215,7 @@
             'hero.btn.bank': 'Află mai mult?',
             'products.title': 'Formule',
             'products.subtitle': 'Patru suplimente țintite pentru sprijin zilnic.',
+            'products.cta': 'Cumpără formule',
             'product.probiotic.title': 'PROBIOTIC COMPLEX',
             'product.probiotic.tagline': 'Puterea microbiomului.',
             'product.probiotic.desc': 'Amestec avansat de probiotice cu Lactobacillus, Bifidobacterium și Streptococcus thermophilus pentru intestin și imunitate.',
@@ -254,6 +266,8 @@
             'nav.products': 'Продукты',
             'nav.about': 'О нас',
             'nav.contact': 'Контакты',
+            'nav.choose': 'Навигация',
+            'nav.bank': 'Банк витаминов',
             'skip.to_content': 'Перейти к содержимому',
             'header.shop': 'Купить формулы',
             'hero.h1': 'IMAGINE. CREATE. EVOLVE.',
@@ -266,6 +280,7 @@
             'hero.btn.bank': 'Узнать больше?',
             'products.title': 'Формулы',
             'products.subtitle': 'Четыре таргетированные формулы на каждый день.',
+            'products.cta': 'Купить формулы',
             'product.probiotic.title': 'PROBIOTIC COMPLEX',
             'product.probiotic.tagline': 'Сила микробиома.',
             'product.probiotic.desc': 'Продвинутая смесь пробиотиков (Lactobacillus, Bifidobacterium, Streptococcus thermophilus) для поддержки кишечника и иммунитета. Баланс изнутри — для более сильного тебя.',
@@ -401,12 +416,7 @@
     function bootI18n() {
         let lang = getLangFromUrl() || getStoredLang();
         if (!lang) {
-            const nav = navigator.language || '';
-            if (nav.startsWith('de')) lang = 'de';
-            else if (nav.startsWith('bg')) lang = 'bg';
-            else if (nav.startsWith('ro')) lang = 'ro';
-            else if (nav.startsWith('ru')) lang = 'ru';
-            else lang = 'en';
+            lang = 'bg';
         }
         window.I18N = { current: lang, dict: DICT };
         applyTranslations(lang);

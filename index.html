@@ -40,7 +40,7 @@
                 <select id="lang-switcher" class="lang-switcher" aria-label="Language" onchange="window.setLanguage && window.setLanguage(this.value)">
                     <option value="en">EN</option>
                     <option value="de">DE</option>
-                    <option value="bg">BG</option>
+                    <option value="bg" selected>BG</option>
                     <option value="ro">RO</option>
                 </select>
             </div>
@@ -53,6 +53,17 @@
                     <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
                 </ul>
             </nav>
+
+            <div class="mobile-nav-picker">
+                <label class="sr-only" for="mobile-nav-select" data-i18n="nav.choose">Navigate</label>
+                <select id="mobile-nav-select" class="mobile-nav-select" aria-label="Navigate">
+                    <option value="" data-i18n="nav.choose">Navigate</option>
+                    <option value="#home" data-i18n="nav.home">Home</option>
+                    <option value="#products" data-i18n="nav.products">Products</option>
+                    <option value="#about" data-i18n="nav.about">About</option>
+                    <option value="#contact" data-i18n="nav.contact">Contact</option>
+                </select>
+            </div>
 
             <div class="header-cta">
                 <a href="#products" class="cta-button" aria-label="Shop our formulas" data-i18n="header.shop">Shop formulas</a>
@@ -78,10 +89,10 @@
                     </div>
                 </div>
                 <div class="hero-images will-animate">
-                    <img src="images/Probiotic_can.jpg" alt="VITLZ Probiotic Complex can" loading="eager" class="rounded-lg shadow-lg hover-scale" />
-                    <img src="images/Multi_can.jpg" alt="VITLZ Multivitamins and Minerals can" loading="lazy" class="rounded-lg shadow-lg hover-scale" />
-                    <img src="images/Womans_can.jpg" alt="VITLZ Women's Ultra Tablet can" loading="lazy" class="rounded-lg shadow-lg hover-scale" />
-                    <img src="images/Mans_can.jpg" alt="VITLZ Men's Premium Complex Tablet can" loading="lazy" class="rounded-lg shadow-lg hover-scale" />
+                    <img src="images/Probiotic_can.jpg" data-gif="images/gif/probiotic.gif" alt="VITLZ Probiotic Complex can" loading="eager" class="rounded-lg shadow-lg hover-scale hero-gif" tabindex="0" />
+                    <img src="images/Multi_can.jpg" data-gif="images/gif/multivitamins.gif" alt="VITLZ Multivitamins and Minerals can" loading="lazy" class="rounded-lg shadow-lg hover-scale hero-gif" tabindex="0" />
+                    <img src="images/Womans_can.jpg" data-gif="images/gif/womens-ultra.gif" alt="VITLZ Women's Ultra Tablet can" loading="lazy" class="rounded-lg shadow-lg hover-scale hero-gif" tabindex="0" />
+                    <img src="images/Mans_can.jpg" data-gif="images/gif/mens-premium.gif" alt="VITLZ Men's Premium Complex Tablet can" loading="lazy" class="rounded-lg shadow-lg hover-scale hero-gif" tabindex="0" />
                 </div>
             </div>
         </section>
@@ -355,6 +366,34 @@
                 } else {
                     header.classList.remove('sticky-header');
                 }
+            });
+
+            // Управление gif картинками в hero
+            const heroGifImages = document.querySelectorAll('.hero-gif[data-gif]');
+            heroGifImages.forEach(img => {
+                const staticSrc = img.getAttribute('src');
+                const gifSrc = img.getAttribute('data-gif');
+
+                const activateGif = () => {
+                    if (gifSrc) {
+                        img.src = gifSrc;
+                    }
+                };
+
+                const deactivateGif = () => {
+                    img.src = staticSrc;
+                };
+
+                img.addEventListener('mouseenter', activateGif);
+                img.addEventListener('focus', activateGif);
+                img.addEventListener('mouseleave', deactivateGif);
+                img.addEventListener('blur', deactivateGif);
+                img.addEventListener('touchstart', activateGif, { passive: true });
+                const handleTouchReset = () => {
+                    setTimeout(deactivateGif, 1500);
+                };
+                img.addEventListener('touchend', handleTouchReset, { passive: true });
+                img.addEventListener('touchcancel', handleTouchReset, { passive: true });
             });
         });
     </script>

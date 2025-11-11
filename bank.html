@@ -21,7 +21,7 @@
                 <select id="lang-switcher" class="lang-switcher" aria-label="Language" onchange="window.setLanguage && window.setLanguage(this.value)">
                     <option value="en">EN</option>
                     <option value="de">DE</option>
-                    <option value="bg">BG</option>
+                    <option value="bg" selected>BG</option>
                     <option value="ro">RO</option>
                 </select>
             </div>
@@ -35,6 +35,17 @@
             </nav>
             <div class="header-cta">
                 <a href="index.html#products" class="cta-button" data-i18n="header.shop">Shop formulas</a>
+            </div>
+            <div class="mobile-nav-picker">
+                <label class="sr-only" for="mobile-nav-select-bank" data-i18n="nav.choose">Navigate</label>
+                <select id="mobile-nav-select-bank" class="mobile-nav-select" aria-label="Navigate">
+                    <option value="" data-i18n="nav.choose">Navigate</option>
+                    <option value="index.html#home" data-i18n="nav.home">Home</option>
+                    <option value="index.html#products" data-i18n="nav.products">Products</option>
+                    <option value="index.html#about" data-i18n="nav.about">About</option>
+                    <option value="index.html#contact" data-i18n="nav.contact">Contact</option>
+                    <option value="#main" data-i18n="nav.bank">Vitamins Bank</option>
+                </select>
             </div>
         </div>
     </header>
