@@ -114,14 +114,11 @@
     async function loadArticlesForLang(lang) {
         const targetLang = lang || 'en';
         let base = null;
-        if (targetLang === 'ru') {
-            base = await fetchJsonItems();
-        }
         if (!Array.isArray(base) || !base.length) {
             const preloaded = getPreloadedItems();
             if (Array.isArray(preloaded) && preloaded.length) {
                 base = preloaded;
-            } else if (targetLang !== 'ru') {
+            } else {
                 const fallback = getFallbackItems();
                 if (Array.isArray(fallback) && fallback.length) {
                     base = fallback;

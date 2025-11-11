@@ -1049,7 +1049,6 @@
     let rendered = 0;
     let articles = [];
     let enArticles = [];
-    let ruArticles = null;
     let cachedJson = null;
     let langRequestToken = 0;
 
@@ -1167,30 +1166,11 @@
         enArticles = FALLBACK_EN.map(cloneArticle);
     }
 
-    async function ensureRuArticles() {
-        if (Array.isArray(ruArticles) && ruArticles.length) return;
-        const json = await fetchBankJson();
-        if (Array.isArray(json) && json.length) {
-            ruArticles = json;
-            return;
-        }
-        // fallback to English dataset if Ru JSON failed
-        await ensureEnArticles();
-        ruArticles = enArticles.map(cloneArticle);
-    }
-
     async function renderForLanguage(lang) {
         const token = ++langRequestToken;
         const targetLang = lang || 'en';
         await ensureEnArticles();
         let baseList = enArticles;
-        if (targetLang === 'ru') {
-            await ensureRuArticles();
-            if (token !== langRequestToken) return;
-            if (Array.isArray(ruArticles) && ruArticles.length) {
-                baseList = ruArticles;
-            }
-        }
         if (token !== langRequestToken) return;
         const localized = localizeArticles(baseList, targetLang);
         resetAndRender(localized);

@@ -9,14 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Стили темы -->
     <link rel="stylesheet" href="style.css?v=20251109">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     
-    <!-- Meta tags для SEO -->
     <meta name="description" content="IMAGINE. CREATE. EVOLVE. VITLZ is a new world built on friendship, sustainability, honesty and the value of each person — more than supplements, an embodiment of hope.">
     <meta name="keywords" content="VITLZ, supplements, probiotics, multivitamins, wellness, EU-made">
     <meta name="author" content="VITLZ Team">
@@ -30,7 +27,6 @@
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <!-- Заголовок -->
     <header class="site-header">
         <div class="container">
             <div class="site-branding">
@@ -72,7 +68,6 @@
     </header>
 
     <main id="main" class="site-content">
-        <!-- Hero Section -->
         <section id="home" class="hero-section retro-grid">
             <canvas id="space-bg-hero" aria-hidden="true"></canvas>
             <div class="container">
@@ -97,7 +92,6 @@
             </div>
         </section>
 
-        <!-- Products Section -->
         <section id="products" class="content-section dark-section">
             <div class="container">
                 <header class="section-header">
@@ -174,7 +168,6 @@
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="content-section dark-section">
             <div class="container">
                 <header class="section-header">
@@ -214,7 +207,6 @@
             </div>
         </section>
 
-        <!-- Universe Section -->
         <section id="universe" class="content-section retro-grid dark-section">
             <div class="container">
                 <header class="section-header">
@@ -259,7 +251,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="content-section dark-section">
             <div class="container">
                 <h2 class="section-title neon-gradient" data-i18n="contact.title">Contact</h2>
@@ -268,7 +259,6 @@
         </section>
     </main>
 
-    <!-- Подвал -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -285,7 +275,6 @@
         </div>
     </footer>
 
-    <!-- Order Modal -->
     <div class="order-modal" id="order-modal" aria-hidden="true">
         <div class="order-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="order-modal-title" tabindex="-1">
             <button type="button" class="order-modal__close" aria-label="Close">×</button>
@@ -323,9 +312,7 @@
     <script src="js/main.js?v=20251109"></script>
     
     <script>
-        // Дополнительный JavaScript для статического сайта
         document.addEventListener('DOMContentLoaded', function() {
-            // Плавная прокрутка для якорных ссылок
             document.querySelectorAll('a[href^="#"]').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -341,7 +328,6 @@
                 });
             });
             
-            // Анимации при прокрутке
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -368,32 +354,52 @@
                 }
             });
 
-            // Управление gif картинками в hero
             const heroGifImages = document.querySelectorAll('.hero-gif[data-gif]');
+            const supportsHover = window.matchMedia('(hover: hover)').matches;
             heroGifImages.forEach(img => {
                 const staticSrc = img.getAttribute('src');
                 const gifSrc = img.getAttribute('data-gif');
+                let touchResetTimeout = null;
 
                 const activateGif = () => {
-                    if (gifSrc) {
+                    if (gifSrc && img.src !== gifSrc) {
                         img.src = gifSrc;
                     }
                 };
 
-                const deactivateGif = () => {
-                    img.src = staticSrc;
+                const resetToStatic = () => {
+                    if (touchResetTimeout) {
+                        clearTimeout(touchResetTimeout);
+                        touchResetTimeout = null;
+                    }
+                    if (img.src !== staticSrc) {
+                        img.src = staticSrc;
+                    }
                 };
 
-                img.addEventListener('mouseenter', activateGif);
-                img.addEventListener('focus', activateGif);
-                img.addEventListener('mouseleave', deactivateGif);
-                img.addEventListener('blur', deactivateGif);
-                img.addEventListener('touchstart', activateGif, { passive: true });
-                const handleTouchReset = () => {
-                    setTimeout(deactivateGif, 1500);
+                const scheduleTouchReset = () => {
+                    if (touchResetTimeout) {
+                        clearTimeout(touchResetTimeout);
+                    }
+                    touchResetTimeout = setTimeout(resetToStatic, 4500);
                 };
-                img.addEventListener('touchend', handleTouchReset, { passive: true });
-                img.addEventListener('touchcancel', handleTouchReset, { passive: true });
+
+                if (supportsHover) {
+                    img.addEventListener('mouseenter', activateGif);
+                    img.addEventListener('focus', activateGif);
+                    img.addEventListener('mouseleave', resetToStatic);
+                    img.addEventListener('blur', resetToStatic);
+                } else {
+                    img.addEventListener('touchstart', () => {
+                        activateGif();
+                        if (touchResetTimeout) {
+                            clearTimeout(touchResetTimeout);
+                            touchResetTimeout = null;
+                        }
+                    }, { passive: true });
+                    img.addEventListener('touchend', scheduleTouchReset, { passive: true });
+                    img.addEventListener('touchcancel', scheduleTouchReset, { passive: true });
+                }
             });
         });
     </script>

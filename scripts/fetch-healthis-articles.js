@@ -40,19 +40,15 @@ function absolutize(href) {
 function extractLinksFromArchive(html) {
   const $ = cheerio.load(html);
   const links = new Set();
-  // Prefer explicit "Читать статью" anchors
   $('a').each((_, a) => {
-    const text = ($(a).text() || '').trim();
     const href = $(a).attr('href') || '';
     if (!href) return;
     const full = absolutize(href);
     if (!/\/bank\//.test(full)) return;
     if (/\/bank\/$/.test(full)) return; // skip the archive root
     if (/comment|#/.test(full)) return;
-    // Heuristic: capture post permalinks (usually not .jpg, .pdf, etc.)
     if (!/\.(jpg|jpeg|png|webp|avif|pdf|zip)$/i.test(full)) {
-      // prioritize anchors with "Читать статью"
-      if (/читать статью/i.test(text)) {
+      if (/\/bank\/[^/]+\/?$/.test(full)) {
         links.add(full);
       }
     }

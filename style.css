@@ -182,7 +182,6 @@ Version: 1.0
 Author: VITLZ Team
 */
 
-/* Reset и базовые стили */
 * {
     margin: 0;
     padding: 0;
@@ -229,14 +228,12 @@ body {
     --font-size-body: clamp(1rem, 0.4vw + 0.9rem, 1.125rem);
 }
 
-/* Контейнер */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Заголовок */
 .site-header {
     background: rgba(15, 23, 42, 0.8);
     color: #e2e8f0;
@@ -430,7 +427,6 @@ body {
     }
 }
 
-/* Главная секция */
 .hero-section {
     background: #0f0f23;
     color: white;
@@ -584,7 +580,6 @@ body {
     color: white;
 }
 
-/* Секции контента */
 .content-section {
     padding: var(--space-8) 0;
 }
@@ -621,7 +616,6 @@ body {
     margin: 0 auto;
 }
 
-/* Стеклянные карточки */
 .glass {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
@@ -630,7 +624,6 @@ body {
     border-radius: 16px;
 }
 
-/* Продукты */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -690,7 +683,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Тёмная секция продуктов + неоновый стиль */
 .dark-section {
     background: radial-gradient(1200px 600px at 20% -10%, rgba(102,126,234,0.15), transparent 60%),
                 radial-gradient(1000px 600px at 100% 0%, rgba(240,147,251,0.12), transparent 60%),
@@ -749,7 +741,6 @@ body {
     }
 }
 
-/* About секция */
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -791,7 +782,6 @@ body {
     font-style: italic;
 }
 
-/* Universe секция */
 .universe-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -832,7 +822,6 @@ body {
     color: #764ba2;
 }
 
-/* Contact секция */
 .contact-text {
     text-align: center;
     font-size: 1.1rem;
@@ -840,7 +829,6 @@ body {
     line-height: 1.6;
 }
 
-/* Тёмная тема для Universe и Contact */
 .dark-section .universe-card h3 {
     color: #ffffff;
 }
@@ -956,7 +944,6 @@ body {
     color: #764ba2;
 }
 
-/* Карточки */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1042,7 +1029,6 @@ body {
     margin-top: 0.5rem;
 }
 
-/* Форма */
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
@@ -1095,7 +1081,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Подвал */
 .site-footer {
     background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #2d1b69 50%, #c44569 75%, #f093fb 100%);
     color: white;
@@ -1220,7 +1205,6 @@ body {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2.5rem;
@@ -1329,7 +1313,6 @@ body {
     }
 }
 
-/* Анимации */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1345,7 +1328,6 @@ body {
     animation: fadeInUp 0.6s ease-out;
 }
 
-/* Дополнительные стили для страниц */
 /* Override header text colors to ensure readability */
 .site-header .site-title,
 .site-header .site-navigation a {
@@ -1577,7 +1559,6 @@ body {
     }
 }
 
-/* Стили для постов */
 .single-post-content {
     max-width: 800px;
     margin: 0 auto;
@@ -1669,7 +1650,6 @@ body {
     color: white;
 }
 
-/* Навигация по постам */
 .post-navigation {
     margin: 3rem 0;
     padding: 2rem 0;
@@ -1703,7 +1683,6 @@ body {
     color: #764ba2;
 }
 
-/* Стили для архивных страниц */
 .page-header {
     text-align: center;
     margin-bottom: 3rem;
@@ -1820,7 +1799,6 @@ body {
     color: white;
 }
 
-/* Пагинация */
 .navigation.pagination {
     text-align: center;
     margin: 3rem 0;
@@ -1855,7 +1833,6 @@ body {
     font-weight: 600;
 }
 
-/* Стили для поиска */
 .search-form-container {
     max-width: 500px;
     margin: 2rem auto;
@@ -1983,7 +1960,6 @@ body {
     border-bottom: none;
 }
 
-/* Стили для комментариев */
 .comments-area {
     margin-top: 3rem;
     padding-top: 2rem;
@@ -2053,7 +2029,6 @@ body {
     text-decoration: underline;
 }
 
-/* Форма комментариев */
 .comment-respond {
     margin-top: 2rem;
     padding: 2rem;
@@ -2114,7 +2089,6 @@ body {
     background: #764ba2;
 }
 
-/* Стили для 404 страницы */
 .error-404 {
     text-align: center;
     padding: 4rem 0;
@@ -2189,7 +2163,6 @@ body {
     color: #764ba2;
 }
 
-/* Дополнительные стили для мобильных устройств */
 @media (max-width: 768px) {
     .posts-grid {
         grid-template-columns: 1fr;
