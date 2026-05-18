@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------- Order modal (Buy) ----------
     initOrderModal();
     function initOrderModal() {
-        const buyButtons = document.querySelectorAll('.buy-button');
+        const buyButtons = document.querySelectorAll('.buy-button:not([href])');
         const modal = document.getElementById('order-modal');
         const dialog = modal ? modal.querySelector('.order-modal__dialog') : null;
         const closeBtn = modal ? modal.querySelector('.order-modal__close') : null;
