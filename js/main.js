@@ -169,7 +169,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         buyButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', (e) => {
+                if (btn.closest('a[href]') || btn.tagName === 'A' || btn.hasAttribute('href')) return;
+                e.preventDefault();
                 const product = btn.getAttribute('data-product') || 'VITLZ Product';
                 open(product);
             });
