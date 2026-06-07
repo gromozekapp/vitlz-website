@@ -4,6 +4,7 @@ Brand website for [VITLZ](https://vitlz.eu) — EU wellness & supplements.
 
 [![Live](https://img.shields.io/badge/live-vitlz.eu-34C759)]() 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-222222?logo=github)]()
+[![CI](https://github.com/gromozekapp/vitlz-website/actions/workflows/ci.yml/badge.svg)](https://github.com/gromozekapp/vitlz-website/actions/workflows/ci.yml)
 
 **Live:** [vitlz.eu](https://vitlz.eu)
 
