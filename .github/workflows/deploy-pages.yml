@@ -2,7 +2,18 @@ name: Deploy static site to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
+    paths:
+      - "**/*.html"
+      - "**/*.css"
+      - "**/*.js"
+      - "**/*.svg"
+      - "data/**"
+      - "images/**"
+      - "CNAME"
+      - "site.webmanifest"
+      - ".nojekyll"
+      - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -30,4 +41,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
