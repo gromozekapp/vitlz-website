@@ -6,3 +6,14 @@ pnpm-debug.log*
 .DS_Store
 *.log
 
+# Secrets & local Shopify CLI state
+.env
+.env.*
+.shopify/
+
+# Duplicate app icon asset (keep vitlz-app-icon-1024.png)
+images/vitlz-app-icon-1024-wordmark.png
+
+# GitHub Pages build output
+_site/
+
