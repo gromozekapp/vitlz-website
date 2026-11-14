@@ -141,6 +141,18 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
     });
     
+    document.querySelectorAll('.product-visual').forEach((visual) => {
+        visual.addEventListener('click', () => {
+            const card = visual.closest('.product-card');
+            if (!card) return;
+            const willOpen = !card.classList.contains('is-open');
+            document.querySelectorAll('.product-card.is-open').forEach((openCard) => {
+                openCard.classList.remove('is-open');
+            });
+            if (willOpen) card.classList.add('is-open');
+        });
+    });
+
     // -------- Order modal (Buy) ----------
     initOrderModal();
     function initOrderModal() {
