@@ -518,24 +518,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // -------- Hero Space Canvas (stars + pills) --------
+    // -------- Page Space Canvas (stars + pills) --------
     initHeroSpaceCanvas();
     function initHeroSpaceCanvas() {
         const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReduced) return;
         const canvas = document.getElementById('space-bg-hero');
         if (!canvas) return;
-        const section = canvas.parentElement;
-        if (!section) return;
 
         const ctx = canvas.getContext('2d', { alpha: true });
         let deviceScale = 1;
         let width = 0, height = 0;
 
         function resize() {
-            const rect = section.getBoundingClientRect();
-            width = Math.max(1, Math.floor(rect.width));
-            height = Math.max(1, Math.floor(rect.height));
+            width = Math.max(1, Math.floor(window.innerWidth));
+            height = Math.max(1, Math.floor(window.innerHeight));
             deviceScale = Math.min(window.devicePixelRatio || 1, 2);
             canvas.width = Math.floor(width * deviceScale);
             canvas.height = Math.floor(height * deviceScale);
@@ -557,9 +554,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let mouseX = width / 2;
         let mouseY = height / 2;
         window.addEventListener('mousemove', (e) => {
-            const rect = section.getBoundingClientRect();
-            mouseX = e.clientX - rect.left;
-            mouseY = e.clientY - rect.top;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
         });
 
         const layers = [
@@ -687,20 +683,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         tick();
 
-        // Pause when section not in viewport to save battery
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.target !== section) return;
-                if (entry.isIntersecting) {
-                    if (!animationId) tick();
-                } else {
-                    if (animationId) {
-                        cancelAnimationFrame(animationId);
-                        animationId = null;
-                    }
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
                 }
-            });
-        }, { threshold: 0.01 });
-        io.observe(section);
+            } else if (!animationId) {
+                tick();
+            }
+        });
     }
 });
