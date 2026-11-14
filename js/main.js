@@ -141,6 +141,48 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
     });
     
+    initProductScroller();
+    function initProductScroller() {
+        const scroller = document.querySelector('.products-scroller');
+        const grid = scroller ? scroller.querySelector('.products-grid') : null;
+        if (!scroller || !grid) return;
+        const prev = scroller.querySelector('.products-arrow--prev');
+        const next = scroller.querySelector('.products-arrow--next');
+
+        const step = () => {
+            const card = grid.querySelector('.product-card');
+            if (!card) return 290;
+            const gap = parseFloat(getComputedStyle(grid).columnGap || getComputedStyle(grid).gap) || 20;
+            return card.getBoundingClientRect().width + gap;
+        };
+        const update = () => {
+            const max = grid.scrollWidth - grid.clientWidth;
+            const atStart = grid.scrollLeft <= 4;
+            const atEnd = max <= 4 || grid.scrollLeft >= max - 4;
+            prev.hidden = atStart;
+            next.hidden = atEnd;
+            grid.classList.toggle('can-scroll-prev', !atStart);
+            grid.classList.toggle('can-scroll-next', !atEnd);
+        };
+        const setLabels = () => {
+            if (!window.__t) return;
+            prev.setAttribute('aria-label', window.__t('products.prev') || 'Previous formulas');
+            next.setAttribute('aria-label', window.__t('products.next') || 'Next formulas');
+        };
+
+        prev.addEventListener('click', () => {
+            grid.scrollBy({ left: -step(), behavior: 'smooth' });
+        });
+        next.addEventListener('click', () => {
+            grid.scrollBy({ left: step(), behavior: 'smooth' });
+        });
+        grid.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        window.addEventListener('i18n:change', setLabels);
+        setLabels();
+        update();
+    }
+
     document.querySelectorAll('.product-visual').forEach((visual) => {
         visual.addEventListener('click', () => {
             const card = visual.closest('.product-card');

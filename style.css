@@ -626,11 +626,49 @@ body {
     border-radius: 16px;
 }
 
+.products-scroller {
+    position: relative;
+    margin-top: var(--space-6);
+}
+
+.products-arrow {
+    position: absolute;
+    top: 7.25rem;
+    z-index: 3;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.products-arrow[hidden] {
+    display: none;
+}
+
+.products-arrow--prev {
+    left: -6px;
+}
+
+.products-arrow--next {
+    right: -6px;
+}
+
+.products-arrow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(102, 126, 234, 0.45);
+}
+
 .products-grid {
     display: flex;
     flex-wrap: nowrap;
     gap: 1.25rem;
-    margin-top: var(--space-6);
+    margin-top: 0;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
@@ -639,6 +677,18 @@ body {
     padding-bottom: 0.85rem;
     scrollbar-width: thin;
     scrollbar-color: #a78bfa transparent;
+}
+
+.products-grid.can-scroll-next {
+    mask-image: linear-gradient(to right, #000 calc(100% - 64px), transparent);
+}
+
+.products-grid.can-scroll-prev.can-scroll-next {
+    mask-image: linear-gradient(to right, transparent, #000 64px, #000 calc(100% - 64px), transparent);
+}
+
+.products-grid.can-scroll-prev:not(.can-scroll-next) {
+    mask-image: linear-gradient(to right, transparent, #000 64px);
 }
 
 .products-grid::-webkit-scrollbar {

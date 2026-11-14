@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261114">
+    <link rel="stylesheet" href="style.css?v=20261114b">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -100,7 +100,11 @@
                     <h2 class="section-title" data-i18n="products.title">Formulas</h2>
                     <p class="section-subtitle" data-i18n="products.subtitle">Seven targeted supplements for daily support.</p>
                 </header>
-                <div class="products-grid">
+                <div class="products-scroller">
+                    <button type="button" class="products-arrow products-arrow--prev" aria-label="Previous formulas" hidden>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+                    </button>
+                    <div class="products-grid">
 
                     <article class="product-card glass">
                         
@@ -256,6 +260,10 @@
                             </a>
                         </div>
                     </article>
+                    </div>
+                    <button type="button" class="products-arrow products-arrow--next" aria-label="Next formulas">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+                    </button>
                 </div>
             </div>
         </section>
@@ -402,8 +410,8 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="js/i18n.js?v=20251109"></script>
-    <script src="js/main.js?v=20261114"></script>
+    <script src="js/i18n.js?v=20261114b"></script>
+    <script src="js/main.js?v=20261114b"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
