@@ -524,21 +524,19 @@ body {
 }
 
 .hero-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    max-width: 500px;
-    justify-self: end;
+    display: block;
+    max-width: none;
+    justify-self: stretch;
 }
 
-.hero-images img {
+.hero-images img,
+.hero-lineup {
     width: 100%;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-    object-fit: cover;
-    aspect-ratio: 1;
+    border-radius: 0;
+    box-shadow: none;
+    object-fit: contain;
+    background: transparent;
 }
 
 .hover-scale:hover {
@@ -1032,6 +1030,22 @@ body {
     gap: 1.25rem;
     margin-top: 2.5rem;
 }
+
+.about-gifs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+}
+
+.about-gifs img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
 .badge-card {
     background: rgba(17, 24, 39, 0.6);
     border: 1px solid rgba(255,255,255,0.08);
@@ -1063,11 +1077,13 @@ body {
 
 @media (max-width: 900px) {
     .mega-title { font-size: 2.4rem; }
-    .about-badges { grid-template-columns: repeat(2, 1fr); }
+    .about-badges,
+    .about-gifs { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 520px) {
     .mega-title { font-size: 2rem; }
-    .about-badges { grid-template-columns: 1fr; }
+    .about-badges,
+    .about-gifs { grid-template-columns: 1fr; }
 }
 
 .contact-text a {
@@ -1387,10 +1403,8 @@ body {
     }
     
     .hero-images {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        max-width: 420px;
+        max-width: none;
         margin: 0 auto;
-        gap: 0.75rem;
     }
     
     .site-header {
