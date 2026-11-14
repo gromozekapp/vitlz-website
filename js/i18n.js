@@ -50,6 +50,13 @@
             'universe.ethos.text': 'Clarity over clutter. Potent, essential ingredients. Transparent guidance. Designed to elevate modern life without noise.',
             'universe.community.title': 'Community',
             'universe.community.text': 'Join our universe for tips, routines, and behind‑the‑scenes drops.',
+            'novelties.title': 'New arrivals',
+            'novelties.collagen.src': 'images/novelties/collagen-en.jpg',
+            'novelties.collagen.alt': 'Marine Collagen — why marine collagen is better',
+            'novelties.electrolytes.src': 'images/novelties/electrolytes-en.jpg',
+            'novelties.electrolytes.alt': 'Electrolytes Complex — four essential electrolytes',
+            'novelties.urinary.src': 'images/novelties/urinary-en.jpg',
+            'novelties.urinary.alt': 'Urinary Complex — when it can be a good choice',
             'contact.title': 'Contact',
             'contact.text.html': 'Questions? Email us at <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Join our universe at <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.',
             'footer.rights': '&copy; 2024 VITLZ. All rights reserved.',
@@ -126,6 +133,13 @@
             'universe.ethos.text': 'Klarheit statt Lärm. Essentielle, wirksame Zutaten. Transparente Guidance.',
             'universe.community.title': 'Community',
             'universe.community.text': 'Tritt unserer Welt bei: Tipps, Routinen und Einblicke hinter die Kulissen.',
+            'novelties.title': 'Neuheiten',
+            'novelties.collagen.src': 'images/novelties/collagen-de.jpg',
+            'novelties.collagen.alt': 'Marines Kollagen — warum marines Kollagen besser ist',
+            'novelties.electrolytes.src': 'images/novelties/electrolytes-de.jpg',
+            'novelties.electrolytes.alt': 'Elektrolyte-Komplex — vier essenzielle Elektrolyte',
+            'novelties.urinary.src': 'images/novelties/urinary-de.jpg',
+            'novelties.urinary.alt': 'Harnweg-Komplex — wann es eine gute Wahl sein kann',
             'contact.title': 'Kontakt',
             'contact.text.html': 'Fragen? Schreibe uns an <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Besuche: <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.',
             'footer.rights': '&copy; 2024 VITLZ. Alle Rechte vorbehalten.',
@@ -202,6 +216,13 @@
             'universe.ethos.text': 'Яснота вместо шум. Необходими и мощни съставки. Прозрачни насоки.',
             'universe.community.title': 'Общност',
             'universe.community.text': 'Присъединете се: съвети, рутини и задкулисни моменти.',
+            'novelties.title': 'Новинки',
+            'novelties.collagen.src': 'images/novelties/collagen-bg.jpg',
+            'novelties.collagen.alt': 'Морски колаген — защо морският колаген е по-добър',
+            'novelties.electrolytes.src': 'images/novelties/electrolytes-bg.jpg',
+            'novelties.electrolytes.alt': 'Електролит комплекс — четири основни електролита',
+            'novelties.urinary.src': 'images/novelties/urinary-bg.jpg',
+            'novelties.urinary.alt': 'Уринарен комплекс — кога може да е добър избор',
             'contact.title': 'Контакт',
             'contact.text.html': 'Въпроси? Пишете ни на <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Още: <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.',
             'footer.rights': '&copy; 2024 VITLZ. Всички права запазени.',
@@ -278,6 +299,13 @@
             'universe.ethos.text': 'Claritate, ingrediente esențiale, ghidaj transparent.',
             'universe.community.title': 'Comunitate',
             'universe.community.text': 'Alătură‑te universului: tips, rutine și culise.',
+            'novelties.title': 'Noutăți',
+            'novelties.collagen.src': 'images/novelties/collagen-ro.jpg',
+            'novelties.collagen.alt': 'Colagen marin — de ce colagenul marin este mai bun',
+            'novelties.electrolytes.src': 'images/novelties/electrolytes-ro.jpg',
+            'novelties.electrolytes.alt': 'Complex de electroliți — patru electroliți esențiali',
+            'novelties.urinary.src': 'images/novelties/urinary-ro.jpg',
+            'novelties.urinary.alt': 'Complex urinar — când poate fi o alegere potrivită',
             'contact.title': 'Contact',
             'contact.text.html': 'Întrebări? Scrie‑ne la <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Vizitează: <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.',
             'footer.rights': '&copy; 2024 VITLZ. Toate drepturile rezervate.',
@@ -339,6 +367,16 @@
 
     function applyTranslations(lang) {
         document.querySelectorAll('[data-i18n]').forEach((el) => translateElement(el, lang));
+        document.querySelectorAll('[data-i18n-src]').forEach((el) => {
+            const key = el.getAttribute('data-i18n-src');
+            const val = (DICT[lang] && DICT[lang][key]) || (DICT.en && DICT.en[key]);
+            if (typeof val === 'string') el.setAttribute('src', val);
+        });
+        document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+            const key = el.getAttribute('data-i18n-alt');
+            const val = (DICT[lang] && DICT[lang][key]) || (DICT.en && DICT.en[key]);
+            if (typeof val === 'string') el.setAttribute('alt', val);
+        });
         setHtmlLang(lang);
         window.I18N = window.I18N || {};
         window.I18N.current = lang;

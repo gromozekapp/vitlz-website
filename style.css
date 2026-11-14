@@ -898,6 +898,29 @@ body {
     margin-top: 3rem;
 }
 
+.novelties-header {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.novelties-banners {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.75rem;
+}
+
+.novelty-banner {
+    margin: 0;
+}
+
+.novelty-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
 .universe-card {
     padding: 2rem;
     transition: all 0.3s ease;
