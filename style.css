@@ -1326,10 +1326,17 @@ body {
 
 .footer-navigation {
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.65rem 1.5rem;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .footer-navigation a {
+    flex: 0 0 auto;
+    white-space: nowrap;
     color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     transition: all 0.3s ease;
@@ -1482,8 +1489,13 @@ body {
     }
     
     .footer-content {
-        flex-direction: column;
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
         text-align: center;
+    }
+
+    .footer-copyright {
+        align-items: center;
     }
     
     .footer-navigation {
