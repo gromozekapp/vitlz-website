@@ -1051,14 +1051,53 @@ body {
     background: rgba(17, 24, 39, 0.6);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 16px;
-    padding: 1.75rem 1.25rem;
+    padding: 0;
     text-align: center;
     transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    position: relative;
 }
-.badge-card:hover {
+.badge-card:hover,
+.badge-card.is-open {
     border-color: rgba(240,147,251,0.35);
     box-shadow: 0 12px 40px rgba(0,0,0,0.35);
     transform: translateY(-4px);
+}
+.badge-trigger {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 1.75rem 1.25rem 1.1rem;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    text-align: center;
+}
+.badge-trigger:focus-visible {
+    outline: 2px solid #a855f7;
+    outline-offset: -6px;
+    border-radius: 16px;
+}
+.badge-products {
+    list-style: none;
+    margin: 0;
+    padding: 0 1.1rem 1.1rem;
+    text-align: left;
+}
+.badge-products li + li {
+    margin-top: 0.35rem;
+}
+.badge-products a {
+    display: block;
+    color: rgba(255, 255, 255, 0.88);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+.badge-products a:hover {
+    color: #f093fb;
 }
 .badge-icon {
     width: 56px;

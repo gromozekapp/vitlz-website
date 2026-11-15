@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261115a">
+    <link rel="stylesheet" href="style.css?v=20261116a">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -110,7 +110,7 @@
                     </button>
                     <div class="products-grid">
 
-                    <article class="product-card glass">
+                    <article class="product-card glass" id="product-collagen">
                         
                         <div class="product-visual" tabindex="0">
                             <img src="images/Marine_Collagen_can.jpg" alt="VITLZ Marine Collagen can" class="product-image" loading="lazy" />
@@ -132,7 +132,7 @@
                         </div>
                     </article>
 
-                    <article class="product-card glass">
+                    <article class="product-card glass" id="product-electrolytes">
                         
                         <div class="product-visual" tabindex="0">
                             <img src="images/Electrolytes_can.jpg" alt="VITLZ Electrolytes Complex can" class="product-image" loading="lazy" />
@@ -154,7 +154,7 @@
                         </div>
                     </article>
 
-                    <article class="product-card glass">
+                    <article class="product-card glass" id="product-urinary">
                         
                         <div class="product-visual" tabindex="0">
                             <img src="images/Urinary_can.jpg" alt="VITLZ Urinary Complex can" class="product-image" loading="lazy" />
@@ -176,7 +176,7 @@
                         </div>
                     </article>
 
-                    <article class="product-card glass">
+                    <article class="product-card glass" id="product-probiotic">
                         
                         <div class="product-visual" tabindex="0">
                             <img src="images/Probiotic_can.jpg" alt="VITLZ Probiotic Complex can" class="product-image" loading="lazy" />
@@ -199,7 +199,7 @@
                         </div>
                     </article>
 
-                    <article class="product-card glass">
+                    <article class="product-card glass" id="product-multi">
                         
                         <div class="product-visual" tabindex="0">
                             <img src="images/Multi_can.jpg" alt="VITLZ Multivitamins and Minerals can" class="product-image" loading="lazy" />
@@ -221,7 +221,7 @@
                         </div>
                     </article>
 
-                    <article class="product-card glass">
+                    <article class="product-card glass" id="product-women">
                         
                         <div class="product-visual" tabindex="0">
                             <img src="images/Womans_can.jpg" alt="VITLZ Women's Ultra Tablet can" class="product-image" loading="lazy" />
@@ -243,7 +243,7 @@
                         </div>
                     </article>
 
-                    <article class="product-card glass">
+                    <article class="product-card glass" id="product-men">
                         
                         <div class="product-visual" tabindex="0">
                             <img src="images/Mans_can.jpg" alt="VITLZ Men's Premium Complex Tablet can" class="product-image" loading="lazy" />
@@ -280,32 +280,62 @@
                 </header>
                 <div class="about-badges">
                     <div class="badge-card">
-                        <div class="badge-icon icon-blue" aria-hidden="true">
-                            <!-- Shield -->
-                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-                        </div>
-                        <div class="badge-label">EU‑Made</div>
+                        <button type="button" class="badge-trigger" aria-expanded="false" aria-controls="badge-list-eu" data-badge="eu">
+                            <div class="badge-icon icon-blue" aria-hidden="true">
+                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+                            </div>
+                            <div class="badge-label" data-i18n="badge.eu">EU‑Made</div>
+                        </button>
+                        <ul class="badge-products" id="badge-list-eu" hidden>
+                            <li><a href="#product-multi" data-i18n="product.multi.title">MULTIVITAMINS &amp; MINERALS COMPLEX</a></li>
+                            <li><a href="#product-collagen" data-i18n="product.collagen.title">MARINE COLLAGEN</a></li>
+                            <li><a href="#product-probiotic" data-i18n="product.probiotic.title">PROBIOTIC COMPLEX</a></li>
+                            <li><a href="#product-urinary" data-i18n="product.urinary.title">URINARY COMPLEX</a></li>
+                            <li><a href="#product-electrolytes" data-i18n="product.electrolytes.title">ELECTROLYTES COMPLEX</a></li>
+                        </ul>
                     </div>
                     <div class="badge-card">
-                        <div class="badge-icon icon-pink" aria-hidden="true">
-                            <!-- Leaf -->
-                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20s3-9 12-9c9 0 8 9 8 9-6 0-10 0-14 0S2 20 2 20z"/><path d="M10 13c0 6-4 7-4 7"/></svg>
-                        </div>
-                        <div class="badge-label">Non‑GMO</div>
+                        <button type="button" class="badge-trigger" aria-expanded="false" aria-controls="badge-list-nongmo" data-badge="nongmo">
+                            <div class="badge-icon icon-pink" aria-hidden="true">
+                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20s3-9 12-9c9 0 8 9 8 9-6 0-10 0-14 0S2 20 2 20z"/><path d="M10 13c0 6-4 7-4 7"/></svg>
+                            </div>
+                            <div class="badge-label" data-i18n="badge.nongmo">Non‑GMO</div>
+                        </button>
+                        <ul class="badge-products" id="badge-list-nongmo" hidden>
+                            <li><a href="#product-multi" data-i18n="product.multi.title">MULTIVITAMINS &amp; MINERALS COMPLEX</a></li>
+                            <li><a href="#product-collagen" data-i18n="product.collagen.title">MARINE COLLAGEN</a></li>
+                            <li><a href="#product-probiotic" data-i18n="product.probiotic.title">PROBIOTIC COMPLEX</a></li>
+                            <li><a href="#product-urinary" data-i18n="product.urinary.title">URINARY COMPLEX</a></li>
+                            <li><a href="#product-electrolytes" data-i18n="product.electrolytes.title">ELECTROLYTES COMPLEX</a></li>
+                        </ul>
                     </div>
                     <div class="badge-card">
-                        <div class="badge-icon icon-purple" aria-hidden="true">
-                            <!-- Ribbon -->
-                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M8 14l-2 7 6-3 6 3-2-7"/></svg>
-                        </div>
-                        <div class="badge-label">GMP Certified</div>
+                        <button type="button" class="badge-trigger" aria-expanded="false" aria-controls="badge-list-gmp" data-badge="gmp">
+                            <div class="badge-icon icon-purple" aria-hidden="true">
+                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M8 14l-2 7 6-3 6 3-2-7"/></svg>
+                            </div>
+                            <div class="badge-label" data-i18n="badge.gmp">GMP Certified</div>
+                        </button>
+                        <ul class="badge-products" id="badge-list-gmp" hidden>
+                            <li><a href="#product-multi" data-i18n="product.multi.title">MULTIVITAMINS &amp; MINERALS COMPLEX</a></li>
+                            <li><a href="#product-collagen" data-i18n="product.collagen.title">MARINE COLLAGEN</a></li>
+                            <li><a href="#product-probiotic" data-i18n="product.probiotic.title">PROBIOTIC COMPLEX</a></li>
+                            <li><a href="#product-urinary" data-i18n="product.urinary.title">URINARY COMPLEX</a></li>
+                            <li><a href="#product-electrolytes" data-i18n="product.electrolytes.title">ELECTROLYTES COMPLEX</a></li>
+                        </ul>
                     </div>
                     <div class="badge-card">
-                        <div class="badge-icon icon-cyan" aria-hidden="true">
-                            <!-- Check circle -->
-                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
-                        </div>
-                        <div class="badge-label">Vegan‑Friendly</div>
+                        <button type="button" class="badge-trigger" aria-expanded="false" aria-controls="badge-list-vegan" data-badge="vegan">
+                            <div class="badge-icon icon-cyan" aria-hidden="true">
+                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+                            </div>
+                            <div class="badge-label" data-i18n="badge.vegan">Vegan‑Friendly</div>
+                        </button>
+                        <ul class="badge-products" id="badge-list-vegan" hidden>
+                            <li><a href="#product-probiotic" data-i18n="product.probiotic.title">PROBIOTIC COMPLEX</a></li>
+                            <li><a href="#product-urinary" data-i18n="product.urinary.title">URINARY COMPLEX</a></li>
+                            <li><a href="#product-electrolytes" data-i18n="product.electrolytes.title">ELECTROLYTES COMPLEX</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="about-gifs">
@@ -437,8 +467,8 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="js/i18n.js?v=20261115a"></script>
-    <script src="js/main.js?v=20261115b"></script>
+    <script src="js/i18n.js?v=20261116a"></script>
+    <script src="js/main.js?v=20261116a"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {

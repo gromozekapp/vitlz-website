@@ -195,6 +195,46 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    initQualityBadges();
+    function initQualityBadges() {
+        const cards = Array.from(document.querySelectorAll('.badge-card'));
+        if (!cards.length) return;
+
+        function closeAll(except) {
+            cards.forEach((card) => {
+                if (card === except) return;
+                card.classList.remove('is-open');
+                const trigger = card.querySelector('.badge-trigger');
+                const list = card.querySelector('.badge-products');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
+                if (list) list.hidden = true;
+            });
+        }
+
+        cards.forEach((card) => {
+            const trigger = card.querySelector('.badge-trigger');
+            const list = card.querySelector('.badge-products');
+            if (!trigger || !list) return;
+            trigger.addEventListener('click', () => {
+                const open = card.classList.contains('is-open');
+                closeAll();
+                if (!open) {
+                    card.classList.add('is-open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                    list.hidden = false;
+                }
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            if (event.target.closest('.badge-card')) return;
+            closeAll();
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeAll();
+        });
+    }
+
     initMarketplaceBuyLinks();
     function initMarketplaceBuyLinks() {
         const emagByLang = {
