@@ -195,6 +195,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    initMarketplaceBuyLinks();
+    function initMarketplaceBuyLinks() {
+        const emagByLang = {
+            probiotic: {
+                bg: 'https://www.emag.bg/probiotik-kompleks-vitlz-probiotic-lactobacillus-bifidobacterium-and-streptococcus-complex-za-vyzrastni-i-deca-nad-12-godini-30-kapsuli-1-kapsula-dnevno-3800502926047/pd/DCRZHT2BM/',
+                ro: 'https://www.emag.ro/complex-probiotic-vitlz-probiotic-lactobacillus-bifidobacterium-si-streptococcus-pentru-adulti-si-copii-peste-12-ani-30-capsule-1-capsula-pe-zi-3800502926047/pd/DCRZHT2BM/',
+                hu: 'https://www.emag.hu/vitlz-probiotikus-komplex-etrend-kiegeszito-30-kapszula-3800502926047/pd/DCRZHT2BM/'
+            },
+            multi: {
+                bg: 'https://www.emag.bg/multivitamin-kompleks-vitlz-multivitamins-minerals-24-premium-aktivni-systavki-30-tabletki-za-ezhednevna-upotreba-za-vyzrastni-i-deca-nad-15-godini-3800502926016/pd/DHRZHT2BM/',
+                ro: 'https://www.emag.ro/complex-multivitaminic-vitlz-multivitamins-minerals-24-ingrediente-active-premium-30-comprimate-pentru-utilizare-zilnica-pentru-adulti-si-copii-peste-15-ani-3800502926016/pd/DS2CZN2BM/'
+            }
+        };
+
+        function apply(lang) {
+            const current = lang || (window.I18N && window.I18N.current) || 'bg';
+            document.querySelectorAll('[data-buy-sku]').forEach((link) => {
+                const sku = link.getAttribute('data-buy-sku');
+                const href = (emagByLang[sku] && (emagByLang[sku][current] || emagByLang[sku].bg));
+                if (href) link.setAttribute('href', href);
+            });
+        }
+
+        window.addEventListener('i18n:change', (event) => {
+            apply(event && event.detail && event.detail.lang);
+        });
+        apply();
+    }
+
     // -------- Order modal (Buy) ----------
     initOrderModal();
     function initOrderModal() {
