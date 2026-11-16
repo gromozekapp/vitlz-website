@@ -790,6 +790,23 @@ body {
     color: #333;
 }
 
+.product-card.is-unavailable {
+    opacity: 0.82;
+}
+
+.product-stock {
+    margin: -0.35rem 0 0.85rem;
+    color: #f093fb !important;
+    font-size: 0.72rem !important;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.product-card.is-out-of-stock .product-stock {
+    color: rgba(255, 255, 255, 0.55) !important;
+}
+
 .product-card p {
     color: #666;
     line-height: 1.6;
