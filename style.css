@@ -1844,6 +1844,9 @@ body {
 .single-post-content .post-thumbnail img {
     max-width: 100%;
     height: auto;
+    max-height: 420px;
+    width: auto;
+    object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
@@ -2436,4 +2439,62 @@ body {
     .page-header .page-title {
         font-size: 2rem;
     }
+}
+
+.blog-card-meta {
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+.dark-section .single-post-content .entry-title,
+.dark-section .single-post-content .entry-content h2,
+.dark-section .single-post-content .entry-content h3,
+.dark-section .single-post-content .entry-content h4 {
+    color: #ffffff;
+}
+
+.dark-section .single-post-content .entry-meta {
+    color: #a3b2d1;
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.single-post-content .entry-content ul,
+.single-post-content .entry-content ol {
+    margin: 0 0 1.5rem;
+    padding-left: 1.4rem;
+}
+
+.single-post-content .entry-content li {
+    margin-bottom: 0.45rem;
+}
+
+.blog-table-wrap {
+    overflow-x: auto;
+    margin: 0 0 1.5rem;
+}
+
+.blog-table {
+    width: 100%;
+    min-width: 280px;
+    border-collapse: collapse;
+}
+
+.blog-table th,
+.blog-table td {
+    text-align: left;
+    padding: 0.7rem 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.blog-table th {
+    font-weight: 600;
+}
+
+.blog-refs {
+    font-size: 0.95rem;
+}
+
+.blog-disclaimer {
+    font-size: 0.95rem;
+    opacity: 0.85;
 }

@@ -37,8 +37,8 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp index.html bank.html post.html privacy-policy.html data-deletion.html style.css CNAME favicon.svg site.webmanifest .nojekyll _site/
-          cp -r js data images _site/
+          cp index.html bank.html post.html blog.html privacy-policy.html data-deletion.html terms-of-service.html refund-policy.html shipping-policy.html style.css CNAME favicon.svg site.webmanifest .nojekyll _site/
+          cp -r js data images blog _site/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
