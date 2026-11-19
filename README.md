@@ -83,4 +83,6 @@ Push to `main` → automatic deploy via GitHub Pages.
 
 ## Related
 
+Shopify store (theme, Admin API scripts, policies, fiscalization) lives in private repos: `gromozekapp/vitlz-shopify` and `gromozekapp/vitlz-shopify-theme`. Do not add store tokens, import scripts, or internal shop docs to this public site repo.
+
 Mobile apps (iOS/Android) — separate repos under NDA.
