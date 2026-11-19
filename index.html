@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261119b">
+    <link rel="stylesheet" href="style.css?v=20261119c">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -411,6 +411,18 @@
         </div>
     </footer>
 
+    <div class="product-detail-modal" id="product-detail-modal" aria-hidden="true">
+        <div class="product-detail__dialog" role="dialog" aria-modal="true" aria-labelledby="product-detail-title" tabindex="-1">
+            <button type="button" class="product-detail__close" aria-label="Close">×</button>
+            <img id="product-detail-image" class="product-detail__image" alt="" />
+            <h3 id="product-detail-title" class="product-detail__title neon-gradient"></h3>
+            <p id="product-detail-tagline" class="product-detail__tagline"></p>
+            <p id="product-detail-desc" class="product-detail__desc"></p>
+            <div id="product-detail-extra" class="product-detail__extra"></div>
+            <div id="product-detail-actions" class="product-detail__actions"></div>
+        </div>
+    </div>
+
     <div class="order-modal" id="order-modal" aria-hidden="true">
         <div class="order-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="order-modal-title" tabindex="-1">
             <button type="button" class="order-modal__close" aria-label="Close">×</button>
@@ -445,7 +457,8 @@
 
     <!-- JavaScript -->
     <script src="js/i18n.js?v=20261119a"></script>
-    <script src="js/main.js?v=20261116a"></script>
+    <script src="js/main.js?v=20261119c"></script>
+    <script src="js/product-details.js?v=20261119e"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {

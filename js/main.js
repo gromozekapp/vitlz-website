@@ -183,17 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
         update();
     }
 
-    document.querySelectorAll('.product-visual').forEach((visual) => {
-        visual.addEventListener('click', () => {
-            const card = visual.closest('.product-card');
-            if (!card) return;
-            const willOpen = !card.classList.contains('is-open');
-            document.querySelectorAll('.product-card.is-open').forEach((openCard) => {
-                openCard.classList.remove('is-open');
-            });
-            if (willOpen) card.classList.add('is-open');
-        });
-    });
+    /* Product image click opens #product-detail-modal (js/product-details.js). */
 
     initQualityBadges();
     function initQualityBadges() {

@@ -161,6 +161,108 @@
     width: 100%;
     background: linear-gradient(90deg, #67e8f9, #a78bfa 45%, #ff66cc 90%);
 }
+
+.product-detail-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.62);
+    z-index: 10006;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+.product-detail-modal.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+.product-detail__dialog {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    max-height: min(92vh, 900px);
+    overflow: auto;
+    background: #0f0f23;
+    color: #e5e7eb;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    padding: 28px 24px 22px;
+    outline: none;
+}
+.product-detail__close {
+    position: sticky;
+    top: 0;
+    float: right;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(15, 15, 35, 0.85);
+    border: 2px solid rgba(255,255,255,0.4);
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+}
+.product-detail__image {
+    display: block;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0 auto 1rem;
+}
+.product-detail__title {
+    text-align: center;
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin: 0 0 0.35rem;
+}
+.product-detail__tagline {
+    text-align: center;
+    color: #67e8f9;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+}
+.product-detail__desc,
+.product-detail__extra p {
+    line-height: 1.6;
+    margin: 0 0 1rem;
+}
+.product-detail__extra h4 {
+    color: #fff;
+    margin: 1.25rem 0 0.5rem;
+}
+.product-detail__lifestyle {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 0 0 1.25rem;
+}
+.product-detail__uses {
+    margin: 0 0 1rem;
+    padding-left: 1.2rem;
+}
+.product-detail__uses li {
+    margin-bottom: 0.4rem;
+}
+.product-detail__nrv {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+.product-detail__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.25rem;
+}
+.product-detail__actions .cta-button {
+    min-width: 180px;
+}
 @media (max-width: 768px) {
     .learn-modal__dialog {
         border-radius: 14px;
@@ -726,6 +828,7 @@ body {
     border-radius: 12px;
     overflow: hidden;
     outline: none;
+    cursor: pointer;
 }
 
 .product-visual:focus-visible {
