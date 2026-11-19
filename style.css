@@ -525,8 +525,10 @@ body {
 .hero-images {
     display: block;
     width: 100%;
-    max-width: none;
-    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .hero-images img,
@@ -1461,7 +1463,7 @@ body {
     }
     
     .hero-images {
-        max-width: none;
+        max-width: 1200px;
         margin: 0 auto;
     }
     
