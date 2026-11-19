@@ -1051,6 +1051,16 @@ body {
     transition: all 0.3s ease;
 }
 
+.universe-card__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 14px;
+    margin: 0 0 1.15rem;
+}
+
 .universe-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
