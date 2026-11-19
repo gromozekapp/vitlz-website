@@ -490,6 +490,7 @@
         slug: 'cranberry-d-mannose-urinary-wellness',
         date: '19.11.2026',
         image: 'images/blog/cranberry-d-mannose-urinary-wellness.jpg',
+        video: 'images/blog/cranberry-d-mannose-urinary-wellness.mp4',
         href: 'blog/cranberry-d-mannose-urinary-wellness.html',
         title: 'Cranberry & D-Mannose: Exploring Two Ingredients in Urinary Wellness',
         summary: 'Explore the science behind cranberry and D-mannose, their proposed mechanisms and current research. Discover the VITLZ Urinary Complex formula.',

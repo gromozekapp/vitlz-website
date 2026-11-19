@@ -36,17 +36,27 @@
         el.className = 'card';
         const summaryLabel = (window.__t && __t('blog.summary')) || 'Summary:';
         const readLabel = (window.__t && __t('blog.read')) || 'Read article';
+        const video = item.video
+            ? `<video class="blog-media__video" src="${escapeHtml(item.video)}" muted autoplay loop playsinline controls preload="metadata"></video>`
+            : '';
         el.innerHTML = `
-            <img class="bank-thumb" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.remove()" />
+            <div class="blog-media${item.video ? ' blog-media--split' : ''}">
+                <img class="bank-thumb" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.remove()" />
+                ${video}
+            </div>
             <h3>${escapeHtml(item.title)}</h3>
             <p><strong data-i18n="blog.summary">${summaryLabel}</strong> ${escapeHtml(item.summary || '')}</p>
             <p class="blog-card-meta">${escapeHtml(item.date || '')}</p>
             <p><a class="story-link" href="${escapeHtml(item.href)}">${escapeHtml(readLabel)}</a></p>
         `;
         el.style.cursor = 'pointer';
+        const videoEl = el.querySelector('video');
+        if (videoEl) {
+            videoEl.addEventListener('click', (ev) => ev.stopPropagation());
+        }
         el.addEventListener('click', (ev) => {
             const a = ev.target && ev.target.closest && ev.target.closest('a');
-            if (a) return;
+            if (a || ev.target.closest('video')) return;
             window.location.href = item.href;
         });
         return el;
