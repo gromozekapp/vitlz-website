@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VITLZ — Vitamins Bank</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261117b">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="canonical" href="https://vitlz.eu/bank.html">
+<link rel="stylesheet" href="style.css?v=20261120a">
     <meta name="description" content="VITLZ Vitamins Bank: expert, clinically-informed nutrition articles with summaries and full content.">
 </head>
 <body>
@@ -20,9 +20,9 @@
                     <img src="images/logo-vitlz-will.png?v=2" alt="VITLZ — We WILL VITLZ U!" class="site-logo__img" width="220" height="81">
                 </a>
                 <select id="lang-switcher" class="lang-switcher" aria-label="Language" onchange="window.setLanguage && window.setLanguage(this.value)">
-                    <option value="en">EN</option>
+                    <option value="en" selected>EN</option>
                     <option value="de">DE</option>
-                    <option value="bg" selected>BG</option>
+                    <option value="bg">BG</option>
                     <option value="ro">RO</option>
                     <option value="hu">HU</option>
                     <option value="pl">PL</option>
@@ -79,22 +79,34 @@
                     <a href="index.html" class="footer-logo" aria-label="VITLZ">
                         <img src="images/logo-vitlz-will.png?v=2" alt="VITLZ — We WILL VITLZ U!" width="220" height="81">
                     </a>
-                    <p data-i18n="footer.rights" data-i18n-html>&copy; 2024 VITLZ. All rights reserved.</p>
+                    <p data-i18n="footer.rights" data-i18n-html>&copy; 2026 VITLZ. All rights reserved.</p>
                 </div>
+                                <div class="footer-links">
+                    <a href="privacy-policy.html" data-i18n="footer.privacy">Privacy</a>
+                    <a href="terms-of-service.html" data-i18n="footer.terms">Terms</a>
+                    <a href="shipping-policy.html" data-i18n="footer.shipping">Shipping</a>
+                    <a href="refund-policy.html" data-i18n="footer.refund">Refunds</a>
+                    <a href="data-deletion.html" data-i18n="footer.deletion">Data deletion</a>
+                    <button type="button" class="footer-cookie-btn" data-consent-open data-i18n="footer.cookies">Cookie settings</button>
+                </div>
+                <address class="footer-imprint">
+                    ФАРМАЛОДЖИК ЕООД (PHARMALOGIC LTD), ЕООД<br>
+                    ЕИК 208225307 · ДДС BG208225307<br>
+                    България, с. Близнаци, 9130, кк Камчия, 21-4<br>
+                    <a href="tel:+359882161603">+359 88 216 1603</a> · <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>
+                </address>
                 <div class="footer-disclaimer">
-                    <p data-i18n="footer.disclaimer" data-i18n-html>If you've had a problem with something you've bought online, you can use the <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">ODR site</a> to try to reach an out-of-court settlement. All products listed on this page are subject to changes. The information on this website can be updated at any time without this being necessarily announced on the website.</p>
+                    <p data-i18n="footer.disclaimer" data-i18n-html>All products listed on this page are subject to changes. The information on this website can be updated at any time without this being necessarily announced on the website.</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/i18n.js?v=20261117b"></script>
-    <script src="js/main.js?v=20261114c"></script>
+    <script src="js/i18n.js?v=20261120a"></script>
+    <script src="js/main.js?v=20261120a"></script>
     <script src="js/bank.data.js?v=20251109"></script>
-    <script src="js/bank.js?v=20261115a"></script>
-<!-- Cloudflare Web Analytics -->
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "20be307a45424da09d830e0dfc48ad2b"}'></script>
-<!-- End Cloudflare Web Analytics -->
+    <script src="js/bank.js?v=20261120a"></script>
+    <script src="js/consent.js?v=20261120a"></script>
 </body>
 </html>
 

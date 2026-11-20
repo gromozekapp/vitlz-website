@@ -240,11 +240,27 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         function apply(lang) {
-            const current = lang || (window.I18N && window.I18N.current) || 'bg';
+            const current = lang || (window.I18N && window.I18N.current) || 'en';
             document.querySelectorAll('[data-buy-sku]').forEach((link) => {
                 const sku = link.getAttribute('data-buy-sku');
-                const href = (emagByLang[sku] && (emagByLang[sku][current] || emagByLang[sku].bg));
+                const map = emagByLang[sku] || {};
+                const direct = map[current];
+                const href = direct || map.bg;
                 if (href) link.setAttribute('href', href);
+                let note = link.querySelector('[data-buy-market]');
+                if (!note) {
+                    note = document.createElement('span');
+                    note.className = 'buy-market';
+                    note.setAttribute('data-buy-market', '');
+                    link.appendChild(note);
+                }
+                if (!direct && map.bg) {
+                    note.hidden = false;
+                    note.textContent = 'eMAG.bg';
+                } else {
+                    note.hidden = true;
+                    note.textContent = '';
+                }
             });
         }
 
@@ -269,9 +285,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailTo = 'info@vitlz.eu';
         const endpoint = window.FORMSPREE_ENDPOINT || null; // e.g. https://formspree.io/f/xxxx
 
-        function open(productName) {
+        function trapFocus(event) {
+            if (event.key !== 'Tab' || !modal.classList.contains('is-visible')) return;
+            const nodes = Array.from(dialog.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'));
+            if (!nodes.length) return;
+            const first = nodes[0];
+            const last = nodes[nodes.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+        dialog.addEventListener('keydown', trapFocus);
+
+        function open(productName, intent) {
             if (productLabel) productLabel.textContent = productName || '';
             if (productInput) productInput.value = productName || '';
+            const title = document.getElementById('order-modal-title');
+            if (title) {
+                const key = intent === 'notify' ? 'order.notify.title' : 'order.title';
+                title.setAttribute('data-i18n', key);
+                title.textContent = (window.__t && window.__t(key)) || title.textContent;
+            }
             modal.classList.add('is-visible');
             try { document.body.style.overflow = 'hidden'; } catch (e) {}
             setTimeout(() => dialog.focus(), 0);
@@ -285,8 +323,12 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.addEventListener('click', (e) => {
                 if (btn.closest('a[href]') || btn.tagName === 'A' || btn.hasAttribute('href')) return;
                 e.preventDefault();
-                const product = btn.getAttribute('data-product') || 'VITLZ Product';
-                open(product);
+                const card = btn.closest('.product-card');
+                const titleEl = card ? card.querySelector('.product-title') : null;
+                const product = (titleEl && titleEl.textContent.trim()) || btn.getAttribute('data-product') || 'VITLZ Product';
+                const intent = btn.getAttribute('data-order-intent')
+                    || (card && card.classList.contains('is-unavailable') ? 'notify' : 'order');
+                open(product, intent);
             });
         });
         closeBtn.addEventListener('click', close);
@@ -479,89 +521,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Cookie consent modal + image format upgrade
-    initCookieConsent();
     upgradeImagesToModernFormats();
+    initReducedMotionMedia();
     
-    function initCookieConsent() {
-        const CONSENT_VERSION = 'v2';
-        try {
-            const params = new URLSearchParams(window.location.search);
-            if (params.get('consent') === 'reset') {
-                localStorage.removeItem('cookie_consent');
-                localStorage.removeItem('cookie_consent_v');
-            }
-        } catch (e) {}
-        
-        try {
-            const stored = localStorage.getItem('cookie_consent');
-            const ver = localStorage.getItem('cookie_consent_v');
-            if (stored && ver === CONSENT_VERSION) return;
-        } catch (e) {}
-        
-        const modal = document.createElement('div');
-        modal.className = 'cookie-modal';
-        modal.setAttribute('role', 'dialog');
-        modal.setAttribute('aria-modal', 'true');
-        modal.setAttribute('aria-label', 'Cookie consent');
-        modal.innerHTML = `
-            <div class="cookie-modal__dialog" tabindex="-1">
-                <div class="cookie-modal__title">Cookies</div>
-                <div class="cookie-modal__text">
-                    We use cookies to improve your experience. See our
-                    <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">Privacy Policy</a>.
-                </div>
-                <div class="cookie-modal__actions">
-                    <button type="button" class="cookie-modal__btn cookie-accept">Accept</button>
-                    <button type="button" class="cookie-modal__btn cookie-modal__btn--secondary cookie-decline">Decline</button>
-                </div>
-            </div>
-        `;
-        document.body.appendChild(modal);
-        const dialog = modal.querySelector('.cookie-modal__dialog');
-        const acceptBtn = modal.querySelector('.cookie-accept');
-        const declineBtn = modal.querySelector('.cookie-decline');
-        const closeModal = () => {
-            try { document.body.style.overflow = ''; } catch (e) {}
-            modal.remove();
-        };
-        try { document.body.style.overflow = 'hidden'; } catch (e) {}
-        // animate in (bottom sheet)
-        requestAnimationFrame(() => {
-            modal.classList.add('is-visible');
-            if (dialog) dialog.focus();
+    function initReducedMotionMedia() {
+        const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduce) return;
+        document.querySelectorAll('video[autoplay]').forEach((video) => {
+            video.removeAttribute('autoplay');
+            try { video.pause(); } catch (e) {}
         });
-        acceptBtn.addEventListener('click', () => {
-            try {
-                localStorage.setItem('cookie_consent', 'accepted');
-                localStorage.setItem('cookie_consent_v', CONSENT_VERSION);
-            } catch (e) {}
-            modal.classList.remove('is-visible');
-            setTimeout(closeModal, 250);
-        });
-        declineBtn.addEventListener('click', () => {
-            try {
-                localStorage.setItem('cookie_consent', 'declined');
-                localStorage.setItem('cookie_consent_v', CONSENT_VERSION);
-            } catch (e) {}
-            modal.classList.remove('is-visible');
-            setTimeout(closeModal, 250);
-        });
-        // Close on backdrop click or Esc
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                declineBtn.click();
-            }
-        });
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                declineBtn.click();
-            }
-        }, { once: true });
     }
-    
+
     function upgradeImagesToModernFormats() {
-        const imgs = Array.from(document.querySelectorAll('img[src$=".jpg"], img[src$=".jpeg"], img[src$=".png"]'));
+        const imgs = Array.from(document.querySelectorAll('img[src*="images/bank/"]'));
         imgs.forEach((img) => {
             const url = new URL(img.getAttribute('src'), window.location.href);
             const srcNoExt = url.pathname.replace(/\.(jpe?g|png)$/i, '');
@@ -705,7 +678,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         let animationId = null;
+        let heroVisible = true;
         function tick() {
+            if (!heroVisible || document.hidden) {
+                animationId = null;
+                return;
+            }
             ctx.clearRect(0, 0, width, height);
             const parX = (mouseX / width - 0.5);
             const parY = (mouseY / height - 0.5);
@@ -740,6 +718,19 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             animationId = requestAnimationFrame(tick);
         }
+        const hero = document.querySelector('.hero-section');
+        if (hero && 'IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                heroVisible = entries.some((entry) => entry.isIntersecting);
+                if (!heroVisible && animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                } else if (heroVisible && !animationId) {
+                    tick();
+                }
+            });
+            observer.observe(hero);
+        }
         tick();
 
         document.addEventListener('visibilitychange', () => {
@@ -748,7 +739,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     cancelAnimationFrame(animationId);
                     animationId = null;
                 }
-            } else if (!animationId) {
+            } else if (heroVisible && !animationId) {
                 tick();
             }
         });

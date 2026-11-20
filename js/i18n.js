@@ -26,6 +26,7 @@
             'product.probiotic.title': 'PROBIOTIC COMPLEX',
             'product.probiotic.tagline': 'The Power of Microbiome.',
             'product.probiotic.desc': 'Advanced probiotic blend with Lactobacillus, Bifidobacterium, and Streptococcus thermophilus to strengthen gut health and immunity. Balance from within — for a stronger you.',
+            'product.probiotic.pack': '30 capsules, 20.4 g. Food supplement.',
             'product.multi.title': 'MULTIVITAMINS & MINERALS COMPLEX',
             'product.multi.tagline': 'Science in Every Tablet.',
             'product.multi.desc': 'A precise formula of 13 vitamins and 10 minerals to maintain daily wellbeing. Includes Lutein, Biotin, and Chromium for metabolism, beauty, and mental clarity. Balanced nutrition — every single day.',
@@ -60,9 +61,20 @@
             'novelties.urinary.src': 'images/novelties/urinary-en.jpg',
             'novelties.urinary.alt': 'Urinary Complex — when it can be a good choice',
             'contact.title': 'Contact',
-            'contact.text.html': 'Questions? Email us at <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Join our universe at <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.',
-            'footer.rights': '&copy; 2024 VITLZ. All rights reserved.',
-            'footer.disclaimer': 'If you\'ve had a problem with something you\'ve bought online, you can use the <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">ODR site</a> to try to reach an out-of-court settlement. All products listed on this page are subject to changes. The information on this website can be updated at any time without this being necessarily announced on the website.',
+            'contact.text.html': 'Questions? Email <a href="mailto:info@vitlz.eu">info@vitlz.eu</a> or call <a href="tel:+359882161603">+359 88 216 1603</a>.',
+            'footer.rights': '&copy; 2026 VITLZ. All rights reserved.',
+            'footer.disclaimer': 'All products listed on this page are subject to changes. The information on this website can be updated at any time without this being necessarily announced on the website.',
+            'footer.privacy': 'Privacy',
+            'footer.terms': 'Terms',
+            'footer.shipping': 'Shipping',
+            'footer.refund': 'Refunds',
+            'footer.deletion': 'Data deletion',
+            'footer.cookies': 'Cookie settings',
+            'order.notify.title': 'Notify me when it is available',
+            'cookie.title': 'Cookies',
+            'cookie.text': 'We use cookies to improve your experience. Analytics loads only if you accept. See our',
+            'cookie.accept': 'Accept',
+            'cookie.decline': 'Decline',
             'buy': 'Buy',
             'badge.eu': 'EU‑Made',
             'badge.nongmo': 'Non‑GMO',
@@ -124,6 +136,7 @@
             'product.probiotic.title': 'PROBIOTIC COMPLEX',
             'product.probiotic.tagline': 'Die Kraft des Mikrobioms.',
             'product.probiotic.desc': 'Fortschrittliche probiotische Mischung mit Lactobacillus, Bifidobacterium und Streptococcus thermophilus zur Unterstützung von Darmgesundheit und Immunsystem.',
+            'product.probiotic.pack': '30 Kapseln, 20,4 g. Nahrungsergänzungsmittel.',
             'product.multi.title': 'MULTIVITAMINS & MINERALS COMPLEX',
             'product.multi.tagline': 'Wissenschaft in jeder Tablette.',
             'product.multi.desc': 'Präzise Formel aus 13 Vitaminen und 10 Mineralstoffen für das tägliche Wohlbefinden. Mit Lutein, Biotin und Chrom für Stoffwechsel, Schönheit und Klarheit.',
@@ -158,9 +171,20 @@
             'novelties.urinary.src': 'images/novelties/urinary-de.jpg',
             'novelties.urinary.alt': 'Harnweg-Komplex — wann es eine gute Wahl sein kann',
             'contact.title': 'Kontakt',
-            'contact.text.html': 'Fragen? Schreibe uns an <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Besuche: <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.',
-            'footer.rights': '&copy; 2024 VITLZ. Alle Rechte vorbehalten.',
-            'footer.disclaimer': 'Wenn Sie ein Problem mit etwas haben, das Sie online gekauft haben, können Sie die <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">OS-Plattform</a> nutzen, um eine außergerichtliche Einigung anzustreben. Alle auf dieser Seite aufgeführten Produkte können sich ändern. Die Informationen auf dieser Website können jederzeit aktualisiert werden, ohne dass dies notwendigerweise auf der Website angekündigt wird.',
+            'contact.text.html': 'Fragen? E-Mail an <a href="mailto:info@vitlz.eu">info@vitlz.eu</a> oder Anruf unter <a href="tel:+359882161603">+359 88 216 1603</a>.',
+            'footer.rights': '&copy; 2026 VITLZ. Alle Rechte vorbehalten.',
+            'footer.disclaimer': 'Alle auf dieser Seite aufgeführten Produkte können sich ändern. Die Informationen auf dieser Website können jederzeit aktualisiert werden, ohne dass dies notwendigerweise auf der Website angekündigt wird.',
+            'footer.privacy': 'Datenschutz',
+            'footer.terms': 'Bedingungen',
+            'footer.shipping': 'Versand',
+            'footer.refund': 'Rückgabe',
+            'footer.deletion': 'Datenlöschung',
+            'footer.cookies': 'Cookie-Einstellungen',
+            'order.notify.title': 'Benachrichtigen, sobald es verfügbar ist',
+            'cookie.title': 'Cookies',
+            'cookie.text': 'Wir verwenden Cookies, um die Nutzung zu verbessern. Analyse wird nur nach Zustimmung geladen. Siehe unsere',
+            'cookie.accept': 'Akzeptieren',
+            'cookie.decline': 'Ablehnen',
             'buy': 'Kaufen',
             'badge.eu': 'EU‑hergestellt',
             'badge.nongmo': 'Ohne GVO',
@@ -222,6 +246,7 @@
             'product.probiotic.title': 'PROBIOTIC COMPLEX',
             'product.probiotic.tagline': 'Силата на микробиома.',
             'product.probiotic.desc': 'Разширена комбинация от пробиотици — Lactobacillus, Bifidobacterium и Streptococcus thermophilus — за червата и имунитета.',
+            'product.probiotic.pack': '30 капсули, 20,4 g. Хранителна добавка.',
             'product.multi.title': 'MULTIVITAMINS & MINERALS COMPLEX',
             'product.multi.tagline': 'Наука във всяка таблетка.',
             'product.multi.desc': 'Точна формула от 13 витамина и 10 минерала за дневно благополучие. С лутеин, биотин и хром за метаболизъм, красота и яснота.',
@@ -256,9 +281,20 @@
             'novelties.urinary.src': 'images/novelties/urinary-bg.jpg',
             'novelties.urinary.alt': 'Уринарен комплекс — кога може да е добър избор',
             'contact.title': 'Контакт',
-            'contact.text.html': 'Въпроси? Пишете ни на <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Още: <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.',
-            'footer.rights': '&copy; 2024 VITLZ. Всички права запазени.',
-            'footer.disclaimer': 'Ако сте имали проблем с нещо, което сте купили онлайн, можете да използвате <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">сайта на ОРС</a>, за да опитате да постигнете извънсъдебно споразумение. Всички продукти, посочени на тази страница, подлежат на промени. Информацията на този уебсайт може да бъде актуализирана по всяко време, без това непременно да бъде обявено на сайта.',
+            'contact.text.html': 'Въпроси? Пишете на <a href="mailto:info@vitlz.eu">info@vitlz.eu</a> или се обадете на <a href="tel:+359882161603">+359 88 216 1603</a>.',
+            'footer.rights': '&copy; 2026 VITLZ. Всички права запазени.',
+            'footer.disclaimer': 'Всички продукти, посочени на тази страница, подлежат на промени. Информацията на този уебсайт може да бъде актуализирана по всяко време, без това непременно да бъде обявено на сайта.',
+            'footer.privacy': 'Поверителност',
+            'footer.terms': 'Условия',
+            'footer.shipping': 'Доставка',
+            'footer.refund': 'Връщане',
+            'footer.deletion': 'Изтриване на данни',
+            'footer.cookies': 'Настройки за бисквитки',
+            'order.notify.title': 'Уведоми ме, когато е налично',
+            'cookie.title': 'Бисквитки',
+            'cookie.text': 'Използваме бисквитки, за да подобрим работата на сайта. Анализът се зарежда само след съгласие. Вижте',
+            'cookie.accept': 'Приемам',
+            'cookie.decline': 'Отказвам',
             'buy': 'Купи',
             'badge.eu': 'Произведено в ЕС',
             'badge.nongmo': 'Без ГМО',
@@ -320,6 +356,7 @@
             'product.probiotic.title': 'PROBIOTIC COMPLEX',
             'product.probiotic.tagline': 'Puterea microbiomului.',
             'product.probiotic.desc': 'Amestec avansat de probiotice cu Lactobacillus, Bifidobacterium și Streptococcus thermophilus pentru intestin și imunitate.',
+            'product.probiotic.pack': '30 de capsule, 20,4 g. Supliment alimentar.',
             'product.multi.title': 'MULTIVITAMINS & MINERALS COMPLEX',
             'product.multi.tagline': 'Știință în fiecare tabletă.',
             'product.multi.desc': 'Formulă precisă cu 13 vitamine și 10 minerale pentru bunăstare zilnică. Cu Luteină, Biotină și Crom pentru metabolism, frumusețe și claritate.',
@@ -354,9 +391,20 @@
             'novelties.urinary.src': 'images/novelties/urinary-ro.jpg',
             'novelties.urinary.alt': 'Complex urinar — când poate fi o alegere potrivită',
             'contact.title': 'Contact',
-            'contact.text.html': 'Întrebări? Scrie‑ne la <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Vizitează: <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.',
-            'footer.rights': '&copy; 2024 VITLZ. Toate drepturile rezervate.',
-            'footer.disclaimer': 'Dacă ați avut o problemă cu ceva cumpărat online, puteți folosi <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">platforma SOL</a> pentru a încerca să ajungeți la o soluționare extrajudiciară. Toate produsele listate pe această pagină pot fi modificate. Informațiile de pe acest site pot fi actualizate oricând, fără ca acest lucru să fie neapărat anunțat pe site.',
+            'contact.text.html': 'Întrebări? Scrie la <a href="mailto:info@vitlz.eu">info@vitlz.eu</a> sau sună la <a href="tel:+359882161603">+359 88 216 1603</a>.',
+            'footer.rights': '&copy; 2026 VITLZ. Toate drepturile rezervate.',
+            'footer.disclaimer': 'Toate produsele listate pe această pagină pot fi modificate. Informațiile de pe acest site pot fi actualizate oricând, fără ca acest lucru să fie neapărat anunțat pe site.',
+            'footer.privacy': 'Confidențialitate',
+            'footer.terms': 'Termeni',
+            'footer.shipping': 'Livrare',
+            'footer.refund': 'Returnări',
+            'footer.deletion': 'Ștergerea datelor',
+            'footer.cookies': 'Setări cookie',
+            'order.notify.title': 'Anunță-mă când este disponibil',
+            'cookie.title': 'Cookie-uri',
+            'cookie.text': 'Folosim cookie-uri pentru a îmbunătăți experiența. Analiza se încarcă doar dacă acceptați. Vedeți',
+            'cookie.accept': 'Accept',
+            'cookie.decline': 'Refuz',
             'buy': 'Cumpără',
             'badge.eu': 'Produs în UE',
             'badge.nongmo': 'Fără OMG',
@@ -418,6 +466,7 @@
             'product.probiotic.title': 'PROBIOTIC COMPLEX',
             'product.probiotic.tagline': 'A mikrobiom ereje.',
             'product.probiotic.desc': 'Fejlett probiotikus keverék Lactobacillus, Bifidobacterium és Streptococcus thermophilus törzsekkel a bélflóra és az immunrendszer támogatására.',
+            'product.probiotic.pack': '30 kapszula, 20,4 g. Étrend-kiegészítő.',
             'product.multi.title': 'MULTIVITAMINS & MINERALS COMPLEX',
             'product.multi.tagline': 'Tudomány minden tablettában.',
             'product.multi.desc': 'Pontos formula 13 vitaminnal és 10 ásványi anyaggal a napi jóllétért. Luteinnel, biotinnal és krómmal az anyagcsere, a szépség és a tisztánlátás támogatására.',
@@ -452,9 +501,20 @@
             'novelties.urinary.src': 'images/novelties/urinary-en.jpg',
             'novelties.urinary.alt': 'Húgyúti komplex — mikor lehet jó választás',
             'contact.title': 'Kapcsolat',
-            'contact.text.html': 'Kérdésed van? Írj nekünk: <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Látogass el: <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.',
-            'footer.rights': '&copy; 2024 VITLZ. Minden jog fenntartva.',
-            'footer.disclaimer': 'Ha problémád akadt egy online vásárolt termékkel, az <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">ODR-oldalon</a> megpróbálhatsz peren kívüli megegyezést elérni. Az oldalon felsorolt összes termék változhat. A weboldalon szereplő információk bármikor frissíthetők anélkül, hogy ezt feltétlenül bejelentenénk.',
+            'contact.text.html': 'Kérdésed van? Írj a <a href="mailto:info@vitlz.eu">info@vitlz.eu</a> címre, vagy hívj: <a href="tel:+359882161603">+359 88 216 1603</a>.',
+            'footer.rights': '&copy; 2026 VITLZ. Minden jog fenntartva.',
+            'footer.disclaimer': 'Az oldalon felsorolt összes termék változhat. A weboldalon szereplő információk bármikor frissíthetők anélkül, hogy ezt feltétlenül bejelentenénk.',
+            'footer.privacy': 'Adatvédelem',
+            'footer.terms': 'Feltételek',
+            'footer.shipping': 'Szállítás',
+            'footer.refund': 'Visszaküldés',
+            'footer.deletion': 'Adattörlés',
+            'footer.cookies': 'Süti beállítások',
+            'order.notify.title': 'Értesíts, ha elérhető',
+            'cookie.title': 'Sütik',
+            'cookie.text': 'Sütiket használunk a jobb működéshez. Az analitika csak elfogadás után töltődik be. Lásd:',
+            'cookie.accept': 'Elfogadom',
+            'cookie.decline': 'Elutasítom',
             'buy': 'Vásárlás',
             'badge.eu': 'EU-ban készült',
             'badge.nongmo': 'GMO-mentes',
@@ -516,6 +576,7 @@
             'product.probiotic.title': 'PROBIOTIC COMPLEX',
             'product.probiotic.tagline': 'Siła mikrobiomu.',
             'product.probiotic.desc': 'Zaawansowana mieszanka probiotyków z Lactobacillus, Bifidobacterium i Streptococcus thermophilus dla jelit i odporności.',
+            'product.probiotic.pack': '30 kapsułek, 20,4 g. Suplement diety.',
             'product.multi.title': 'MULTIVITAMINS & MINERALS COMPLEX',
             'product.multi.tagline': 'Nauka w każdej tabletce.',
             'product.multi.desc': 'Precyzyjna formuła 13 witamin i 10 minerałów dla codziennego dobrostanu. Z luteiną, biotyną i chromem dla metabolizmu, urody i jasności umysłu.',
@@ -550,9 +611,20 @@
             'novelties.urinary.src': 'images/novelties/urinary-en.jpg',
             'novelties.urinary.alt': 'Kompleks na drogi moczowe — kiedy może być dobrym wyborem',
             'contact.title': 'Kontakt',
-            'contact.text.html': 'Pytania? Napisz na <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Odwiedź: <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.',
-            'footer.rights': '&copy; 2024 VITLZ. Wszelkie prawa zastrzeżone.',
-            'footer.disclaimer': 'Jeśli miałeś problem z czymś kupionym online, możesz skorzystać z <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">platformy ODR</a>, aby spróbować osiągnąć ugodę pozasądową. Wszystkie produkty wymienione na tej stronie mogą ulec zmianom. Informacje na tej stronie mogą być aktualizowane w dowolnym momencie bez konieczności ogłaszania tego na stronie.',
+            'contact.text.html': 'Pytania? Napisz na <a href="mailto:info@vitlz.eu">info@vitlz.eu</a> lub zadzwoń: <a href="tel:+359882161603">+359 88 216 1603</a>.',
+            'footer.rights': '&copy; 2026 VITLZ. Wszelkie prawa zastrzeżone.',
+            'footer.disclaimer': 'Wszystkie produkty wymienione na tej stronie mogą ulec zmianom. Informacje na tej stronie mogą być aktualizowane w dowolnym momencie bez konieczności ogłaszania tego na stronie.',
+            'footer.privacy': 'Prywatność',
+            'footer.terms': 'Regulamin',
+            'footer.shipping': 'Dostawa',
+            'footer.refund': 'Zwroty',
+            'footer.deletion': 'Usuwanie danych',
+            'footer.cookies': 'Ustawienia cookie',
+            'order.notify.title': 'Powiadom mnie, gdy będzie dostępny',
+            'cookie.title': 'Pliki cookie',
+            'cookie.text': 'Używamy plików cookie, aby poprawić działanie strony. Analityka ładuje się dopiero po zgodzie. Zobacz',
+            'cookie.accept': 'Akceptuję',
+            'cookie.decline': 'Odrzucam',
             'buy': 'Kup',
             'badge.eu': 'Wyprodukowano w UE',
             'badge.nongmo': 'Bez GMO',
@@ -605,12 +677,6 @@
         const key = el.getAttribute('data-i18n');
         if (!key) return;
         const dict = (DICT[lang] && DICT[lang][key]) || (DICT.en && DICT.en[key]) || '';
-        const isHtml = el.hasAttribute('data-i18n-html');
-        if (isHtml) {
-            el.innerHTML = String(dict);
-        } else {
-            el.textContent = String(dict);
-        }
         const attrs = el.getAttribute('data-i18n-attr');
         if (attrs) {
             attrs.split(',').map(s => s.trim()).forEach((attr) => {
@@ -618,6 +684,13 @@
                 const val = (DICT[lang] && DICT[lang][attrKey]) || (DICT.en && DICT.en[attrKey]);
                 if (typeof val === 'string') el.setAttribute(attr, val);
             });
+            return;
+        }
+        const isHtml = el.hasAttribute('data-i18n-html');
+        if (isHtml) {
+            el.innerHTML = String(dict);
+        } else {
+            el.textContent = String(dict);
         }
     }
 
@@ -669,8 +742,10 @@
         try {
             const u = new URL(url, window.location.href);
             if (u.origin !== window.location.origin) return url; // external
-            u.searchParams.set('lang', lang);
-            return u.pathname + '?' + u.searchParams.toString() + (u.hash || '');
+            if (lang && lang !== 'en') u.searchParams.set('lang', lang);
+            else u.searchParams.delete('lang');
+            const qs = u.searchParams.toString();
+            return u.pathname + (qs ? '?' + qs : '') + (u.hash || '');
         } catch (e) {
             return url;
         }
@@ -693,9 +768,7 @@
 
     function bootI18n() {
         let lang = getLangFromUrl() || getStoredLang();
-        if (!lang) {
-            lang = 'bg';
-        }
+        if (!lang || !DICT[lang]) lang = 'en';
         window.I18N = { current: lang, dict: DICT };
         applyTranslations(lang);
         initLanguageSwitcher();

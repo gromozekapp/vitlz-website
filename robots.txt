@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /data/
+Disallow: /post.html
+Sitemap: https://vitlz.eu/sitemap.xml

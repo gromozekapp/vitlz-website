@@ -649,6 +649,17 @@
         `;
     }
 
+    function fillStaticDetails() {
+        const langNow = (window.I18N && window.I18N.current) || 'en';
+        document.querySelectorAll('[data-static-detail]').forEach((el) => {
+            const key = el.getAttribute('data-static-detail');
+            const html = extras[key] && (extras[key][langNow] || extras[key].en);
+            if (html) el.innerHTML = html;
+        });
+    }
+    fillStaticDetails();
+    window.addEventListener('i18n:change', fillStaticDetails);
+
     const modal = document.getElementById('product-detail-modal');
     if (!modal) return;
 
@@ -745,6 +756,18 @@
     });
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && modal.classList.contains('is-visible')) close();
+        if (event.key !== 'Tab' || !modal.classList.contains('is-visible')) return;
+        const nodes = Array.from(dialog.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'));
+        if (!nodes.length) return;
+        const first = nodes[0];
+        const last = nodes[nodes.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
     });
     window.addEventListener('i18n:change', () => {
         if (currentCard && modal.classList.contains('is-visible')) fillFromCard(currentCard);

@@ -3,27 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VITLZ Supplements - Retro‑Futurist Wellness</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261119g">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
-    <meta name="description" content="IMAGINE. CREATE. EVOLVE. VITLZ is a new world built on friendship, sustainability, honesty and the value of each person — more than supplements, an embodiment of hope.">
-    <meta name="keywords" content="VITLZ, supplements, probiotics, multivitamins, wellness, EU-made">
+    <title>VITLZ Supplements — Probiotic, Multivitamins, Collagen</title>
+    <link rel="stylesheet" href="style.css?v=20261120a">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="canonical" href="https://vitlz.eu/">
+    <meta name="description" content="VITLZ food supplements from Pharmalogic LTD: probiotic complex, multivitamins, marine collagen, electrolytes and urinary complex. Made in the EU.">
     <meta name="author" content="VITLZ Team">
-    
-    <!-- Open Graph tags -->
-    <meta property="og:title" content="VITLZ Supplements - Retro‑Futurist Wellness">
-    <meta property="og:description" content="IMAGINE. CREATE. EVOLVE. VITLZ is a new world built on friendship, sustainability, honesty and the value of each person — more than supplements, an embodiment of hope.">
+    <meta property="og:title" content="VITLZ Supplements — Probiotic, Multivitamins, Collagen">
+    <meta property="og:description" content="VITLZ food supplements from Pharmalogic LTD: probiotic complex, multivitamins, marine collagen, electrolytes and urinary complex. Made in the EU.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.vitlz.eu">
-    <meta property="og:image" content="images/Probiotic_can.jpg">
+    <meta property="og:url" content="https://vitlz.eu/">
+    <meta property="og:image" content="https://vitlz.eu/images/Probiotic_can.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ФАРМАЛОДЖИК ЕООД",
+      "alternateName": "PHARMALOGIC LTD",
+      "url": "https://vitlz.eu/",
+      "email": "info@vitlz.eu",
+      "telephone": "+359882161603",
+      "vatID": "BG208225307",
+      "identifier": "208225307",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "кк Камчия 21-4",
+        "addressLocality": "с. Близнаци",
+        "postalCode": "9130",
+        "addressCountry": "BG"
+      }
+    }
+    </script>
     <!-- Shopify store (update when custom domain is connected) -->
     <meta name="vitlz-shop-url" content="https://vitlz-eu.myshopify.com">
 </head>
@@ -37,9 +48,9 @@
                     <img src="images/logo-vitlz-will.png?v=2" alt="VITLZ — We WILL VITLZ U!" class="site-logo__img" width="220" height="81">
                 </a>
                 <select id="lang-switcher" class="lang-switcher" aria-label="Language" onchange="window.setLanguage && window.setLanguage(this.value)">
-                    <option value="en">EN</option>
+                    <option value="en" selected>EN</option>
                     <option value="de">DE</option>
-                    <option value="bg" selected>BG</option>
+                    <option value="bg">BG</option>
                     <option value="ro">RO</option>
                     <option value="hu">HU</option>
                     <option value="pl">PL</option>
@@ -87,15 +98,15 @@
             <div class="container">
                 <div class="hero-content will-animate">
                     <h1 class="neon-gradient" data-i18n="hero.h1">IMAGINE. CREATE. EVOLVE.</h1>
+                    <div class="hero-buttons">
+                        <a href="#products" class="cta-button" aria-label="Explore VITLZ products" data-i18n="hero.btn.explore">Explore products</a>
+                        <a href="bank.html" class="cta-button outline" aria-label="Vitamins Bank" data-i18n="hero.btn.bank">Learn more?</a>
+                    </div>
                     <p data-i18n="hero.p1">Imagine. What would the world be like if everyone fought for humanity — and for every single person? How would we live, how would we communicate?</p>
                     <p data-i18n="hero.p2">Friendship, sustainability, honesty, and the value of each of us — for the future, for progress in science, nature, and culture.</p>
                     <p data-i18n="hero.p3">The new world of the VITLZ line was born from this vision. It's more than just supplements — it's a living embodiment of our hopes.</p>
                     <p data-i18n="hero.p4">Taste it, try it for yourself, let this world enter your life — become part of it, and truly experience it.</p>
                     <p data-i18n="hero.p5" data-i18n-html>✨ <span class="neon-gradient">Let's make the world better together.</span></p>
-                    <div class="hero-buttons">
-                        <a href="#products" class="cta-button" aria-label="Explore VITLZ products" data-i18n="hero.btn.explore">Explore products</a>
-                        <a href="bank.html" class="cta-button outline" aria-label="Vitamins Bank" data-i18n="hero.btn.bank">Learn more?</a>
-                    </div>
                 </div>
             </div>
         </section>
@@ -115,13 +126,14 @@
                     <article class="product-card glass" id="product-probiotic">
                         
                         <div class="product-visual" tabindex="0">
-                            <img src="images/Probiotic_can.jpg" alt="VITLZ Probiotic Complex can" class="product-image" loading="lazy" />
+                            <img src="images/Probiotic_can.jpg" alt="VITLZ Probiotic Complex can" class="product-image" width="1024" height="1024" loading="lazy" />
                             <div class="product-copy">
                                 <p class="product-tagline" data-i18n="product.probiotic.tagline">The Power of Microbiome.</p>
                                 <p class="product-desc" data-i18n="product.probiotic.desc">Advanced probiotic blend with Lactobacillus, Bifidobacterium, and Streptococcus thermophilus to strengthen gut health and immunity. Balance from within — for a stronger you.</p>
                             </div>
                         </div>
-                        <h3 class="product-title neon-gradient" data-i18n="product.probiotic.title">PROBIOTIC COMPLEX</h3>
+                        <h3 class="product-title"><a class="neon-gradient" href="probiotic-complex.html" data-i18n="product.probiotic.title">PROBIOTIC COMPLEX</a></h3>
+                        <p class="product-pack" data-i18n="product.probiotic.pack">30 capsules, 20.4 g. Food supplement.</p>
                         <div class="product-actions">
                             <a href="https://www.emag.bg/probiotik-kompleks-vitlz-probiotic-lactobacillus-bifidobacterium-and-streptococcus-complex-za-vyzrastni-i-deca-nad-12-godini-30-kapsuli-1-kapsula-dnevno-3800502926047/pd/DCRZHT2BM/" class="cta-button buy-link" data-buy-sku="probiotic" target="_blank" rel="noopener noreferrer" aria-label="Buy PROBIOTIC COMPLEX">
                                 <!-- cart icon -->
@@ -138,13 +150,13 @@
                     <article class="product-card glass" id="product-multi">
                         
                         <div class="product-visual" tabindex="0">
-                            <img src="images/Multi_can.jpg" alt="VITLZ Multivitamins and Minerals can" class="product-image" loading="lazy" />
+                            <img src="images/Multi_can.jpg" alt="VITLZ Multivitamins and Minerals can" class="product-image" width="1024" height="1024" loading="lazy" />
                             <div class="product-copy">
                                 <p class="product-tagline" data-i18n="product.multi.tagline">Science in Every Tablet.</p>
                                 <p class="product-desc" data-i18n="product.multi.desc">A precise formula of 13 vitamins and 10 minerals to maintain daily wellbeing. Includes Lutein, Biotin, and Chromium for metabolism, beauty, and mental clarity. Balanced nutrition — every single day.</p>
                             </div>
                         </div>
-                        <h3 class="product-title neon-gradient" data-i18n="product.multi.title">MULTIVITAMINS &amp; MINERALS COMPLEX</h3>
+                        <h3 class="product-title"><a class="neon-gradient" href="multivitamins.html" data-i18n="product.multi.title">MULTIVITAMINS &amp; MINERALS COMPLEX</a></h3>
                         <div class="product-actions">
                             <a href="https://www.emag.bg/multivitamin-kompleks-vitlz-multivitamins-minerals-24-premium-aktivni-systavki-30-tabletki-za-ezhednevna-upotreba-za-vyzrastni-i-deca-nad-15-godini-3800502926016/pd/DHRZHT2BM/" class="cta-button buy-link" data-buy-sku="multi" target="_blank" rel="noopener noreferrer" aria-label="Buy MULTIVITAMINS &amp; MINERALS COMPLEX">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right:8px;">
@@ -160,13 +172,13 @@
                     <article class="product-card glass is-unavailable is-coming-soon" id="product-collagen">
                         
                         <div class="product-visual" tabindex="0">
-                            <img src="images/Marine_Collagen_can.jpg" alt="VITLZ Marine Collagen can" class="product-image" loading="lazy" />
+                            <img src="images/Marine_Collagen_can.jpg" alt="VITLZ Marine Collagen can" class="product-image" width="1024" height="1024" loading="lazy" />
                             <div class="product-copy">
                                 <p class="product-tagline" data-i18n="product.collagen.tagline">Skin. Hair. Nails.</p>
                                 <p class="product-desc" data-i18n="product.collagen.desc">Hydrolyzed marine collagen with vitamin C and B3. 30 capsules, 21.6 g — for skin, hair and nails.</p>
                             </div>
                         </div>
-                        <h3 class="product-title neon-gradient" data-i18n="product.collagen.title">MARINE COLLAGEN</h3>
+                        <h3 class="product-title"><a class="neon-gradient" href="marine-collagen.html" data-i18n="product.collagen.title">MARINE COLLAGEN</a></h3>
                         <p class="product-stock" data-i18n="stock.coming_soon">Coming soon</p>
                         <div class="product-actions">
                             <button type="button" class="cta-button outline buy-button" data-product="Marine Collagen">
@@ -178,13 +190,13 @@
                     <article class="product-card glass is-unavailable is-coming-soon" id="product-electrolytes">
                         
                         <div class="product-visual" tabindex="0">
-                            <img src="images/Electrolytes_can.jpg" alt="VITLZ Electrolytes Complex can" class="product-image" loading="lazy" />
+                            <img src="images/Electrolytes_can.jpg" alt="VITLZ Electrolytes Complex can" class="product-image" width="1024" height="1024" loading="lazy" />
                             <div class="product-copy">
                                 <p class="product-tagline" data-i18n="product.electrolytes.tagline">Minerals. Balance. Hydration.</p>
                                 <p class="product-desc" data-i18n="product.electrolytes.desc">Magnesium, potassium, sodium and chloride for electrolyte balance. 30 tablets, 48 g.</p>
                             </div>
                         </div>
-                        <h3 class="product-title neon-gradient" data-i18n="product.electrolytes.title">ELECTROLYTES COMPLEX</h3>
+                        <h3 class="product-title"><a class="neon-gradient" href="electrolytes-complex.html" data-i18n="product.electrolytes.title">ELECTROLYTES COMPLEX</a></h3>
                         <p class="product-stock" data-i18n="stock.coming_soon">Coming soon</p>
                         <div class="product-actions">
                             <button type="button" class="cta-button outline buy-button" data-product="Electrolytes Complex">
@@ -196,13 +208,13 @@
                     <article class="product-card glass is-unavailable is-coming-soon" id="product-urinary">
                         
                         <div class="product-visual" tabindex="0">
-                            <img src="images/Urinary_can.jpg" alt="VITLZ Urinary Complex can" class="product-image" loading="lazy" />
+                            <img src="images/Urinary_can.jpg" alt="VITLZ Urinary Complex can" class="product-image" width="1024" height="1024" loading="lazy" />
                             <div class="product-copy">
                                 <p class="product-tagline" data-i18n="product.urinary.tagline">Daily urinary tract support.</p>
                                 <p class="product-desc" data-i18n="product.urinary.desc">D-mannose 400 mg and cranberry 100 mg. 30 capsules, 24 g — for urinary tract health.</p>
                             </div>
                         </div>
-                        <h3 class="product-title neon-gradient" data-i18n="product.urinary.title">URINARY COMPLEX</h3>
+                        <h3 class="product-title"><a class="neon-gradient" href="urinary-complex.html" data-i18n="product.urinary.title">URINARY COMPLEX</a></h3>
                         <p class="product-stock" data-i18n="stock.coming_soon">Coming soon</p>
                         <div class="product-actions">
                             <button type="button" class="cta-button outline buy-button" data-product="Urinary Complex">
@@ -214,13 +226,13 @@
                     <article class="product-card glass is-unavailable is-out-of-stock" id="product-women">
                         
                         <div class="product-visual" tabindex="0">
-                            <img src="images/Womans_can.jpg" alt="VITLZ Women's Ultra Tablet can" class="product-image" loading="lazy" />
+                            <img src="images/Womans_can.jpg" alt="VITLZ Women's Ultra Tablet can" class="product-image" width="1024" height="1024" loading="lazy" />
                             <div class="product-copy">
                                 <p class="product-tagline" data-i18n="product.women.tagline">Beauty. Balance. Inner Strength.</p>
                                 <p class="product-desc" data-i18n="product.women.desc">For women who lead with brilliance and grace. Contains Vitamins A, C, D3, E, Iron, Calcium, Selenium, and Bioflavonoids to support vitality, hormone balance, and glowing skin. Your daily ritual for harmony of body and mind.</p>
                             </div>
                         </div>
-                        <h3 class="product-title neon-gradient" data-i18n="product.women.title">WOMEN'S ULTRA TABLET</h3>
+                        <h3 class="product-title"><a class="neon-gradient" href="womens-ultra.html" data-i18n="product.women.title">WOMEN'S ULTRA TABLET</a></h3>
                         <p class="product-stock" data-i18n="stock.out_of_stock">Out of stock</p>
                         <div class="product-actions">
                             <button type="button" class="cta-button outline buy-button" data-product="Women's Ultra Tablet">
@@ -232,13 +244,13 @@
                     <article class="product-card glass is-unavailable is-out-of-stock" id="product-men">
                         
                         <div class="product-visual" tabindex="0">
-                            <img src="images/Mans_can.jpg" alt="VITLZ Men's Premium Complex Tablet can" class="product-image" loading="lazy" />
+                            <img src="images/Mans_can.jpg" alt="VITLZ Men's Premium Complex Tablet can" class="product-image" width="1024" height="1024" loading="lazy" />
                             <div class="product-copy">
                                 <p class="product-tagline" data-i18n="product.men.tagline">Power. Focus. Vitality.</p>
                                 <p class="product-desc" data-i18n="product.men.desc">Designed for modern men who never stop evolving. This complex blends Vitamins A, D, E, K, full B-group, Zinc, Selenium, and Ginseng for energy, immunity, and focus. With Saw Palmetto and Ginkgo Biloba, it boosts strength and concentration for ultimate performance.</p>
                             </div>
                         </div>
-                        <h3 class="product-title neon-gradient" data-i18n="product.men.title">MEN'S PREMIUM COMPLEX TABLET</h3>
+                        <h3 class="product-title"><a class="neon-gradient" href="mens-premium.html" data-i18n="product.men.title">MEN'S PREMIUM COMPLEX TABLET</a></h3>
                         <p class="product-stock" data-i18n="stock.out_of_stock">Out of stock</p>
                         <div class="product-actions">
                             <button type="button" class="cta-button outline buy-button" data-product="Men's Premium Complex Tablet">
@@ -303,13 +315,19 @@
                 </header>
                 <div class="novelties-banners">
                     <figure class="novelty-banner">
-                        <img data-i18n-src="novelties.collagen.src" data-i18n-alt="novelties.collagen.alt" src="images/novelties/collagen-en.jpg" alt="Marine Collagen" width="1024" height="1024" loading="lazy" />
+                        <a href="#product-collagen">
+                            <img data-i18n-src="novelties.collagen.src" data-i18n-alt="novelties.collagen.alt" src="images/novelties/collagen-en.jpg" alt="Marine Collagen" width="1024" height="1024" loading="lazy" />
+                        </a>
                     </figure>
                     <figure class="novelty-banner">
-                        <img data-i18n-src="novelties.electrolytes.src" data-i18n-alt="novelties.electrolytes.alt" src="images/novelties/electrolytes-en.jpg" alt="Electrolytes Complex" width="1024" height="1024" loading="lazy" />
+                        <a href="#product-electrolytes">
+                            <img data-i18n-src="novelties.electrolytes.src" data-i18n-alt="novelties.electrolytes.alt" src="images/novelties/electrolytes-en.jpg" alt="Electrolytes Complex" width="1024" height="1024" loading="lazy" />
+                        </a>
                     </figure>
                     <figure class="novelty-banner">
-                        <img data-i18n-src="novelties.urinary.src" data-i18n-alt="novelties.urinary.alt" src="images/novelties/urinary-en.jpg" alt="Urinary Complex" width="1024" height="1024" loading="lazy" />
+                        <a href="#product-urinary">
+                            <img data-i18n-src="novelties.urinary.src" data-i18n-alt="novelties.urinary.alt" src="images/novelties/urinary-en.jpg" alt="Urinary Complex" width="1024" height="1024" loading="lazy" />
+                        </a>
                     </figure>
                 </div>
             </div>
@@ -393,7 +411,7 @@
         <section id="contact" class="content-section dark-section">
             <div class="container">
                 <h2 class="section-title neon-gradient" data-i18n="contact.title">Contact</h2>
-                <p class="contact-text" data-i18n="contact.text.html" data-i18n-html>Questions? Email us at <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>. Join our universe at <a href="https://www.vitlz.eu" target="_blank" rel="noreferrer">www.vitlz.eu</a>.</p>
+                <p class="contact-text" data-i18n="contact.text.html" data-i18n-html>Questions? Email <a href="mailto:info@vitlz.eu">info@vitlz.eu</a> or call <a href="tel:+359882161603">+359 88 216 1603</a>.</p>
             </div>
         </section>
     </main>
@@ -405,10 +423,24 @@
                     <a href="index.html" class="footer-logo" aria-label="VITLZ">
                         <img src="images/logo-vitlz-will.png?v=2" alt="VITLZ — We WILL VITLZ U!" width="220" height="81">
                     </a>
-                    <p data-i18n="footer.rights" data-i18n-html>&copy; 2024 VITLZ. All rights reserved.</p>
+                    <p data-i18n="footer.rights" data-i18n-html>&copy; 2026 VITLZ. All rights reserved.</p>
                 </div>
+                <div class="footer-links">
+                    <a href="privacy-policy.html" data-i18n="footer.privacy">Privacy</a>
+                    <a href="terms-of-service.html" data-i18n="footer.terms">Terms</a>
+                    <a href="shipping-policy.html" data-i18n="footer.shipping">Shipping</a>
+                    <a href="refund-policy.html" data-i18n="footer.refund">Refunds</a>
+                    <a href="data-deletion.html" data-i18n="footer.deletion">Data deletion</a>
+                    <button type="button" class="footer-cookie-btn" data-consent-open data-i18n="footer.cookies">Cookie settings</button>
+                </div>
+                <address class="footer-imprint">
+                    ФАРМАЛОДЖИК ЕООД (PHARMALOGIC LTD), ЕООД<br>
+                    ЕИК 208225307 · ДДС BG208225307<br>
+                    България, с. Близнаци, 9130, кк Камчия, 21-4<br>
+                    <a href="tel:+359882161603">+359 88 216 1603</a> · <a href="mailto:info@vitlz.eu">info@vitlz.eu</a>
+                </address>
                 <div class="footer-disclaimer">
-                    <p data-i18n="footer.disclaimer" data-i18n-html>If you've had a problem with something you've bought online, you can use the <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">ODR site</a> to try to reach an out-of-court settlement. All products listed on this page are subject to changes. The information on this website can be updated at any time without this being necessarily announced on the website.</p>
+                    <p data-i18n="footer.disclaimer" data-i18n-html>All products listed on this page are subject to changes. The information on this website can be updated at any time without this being necessarily announced on the website.</p>
                 </div>
             </div>
         </div>
@@ -459,9 +491,10 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="js/i18n.js?v=20261119a"></script>
-    <script src="js/main.js?v=20261119c"></script>
-    <script src="js/product-details.js?v=20261119e"></script>
+    <script src="js/i18n.js?v=20261120a"></script>
+    <script src="js/consent.js?v=20261120a"></script>
+    <script src="js/main.js?v=20261120a"></script>
+    <script src="js/product-details.js?v=20261120a"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -555,8 +588,5 @@
             });
         });
     </script>
-<!-- Cloudflare Web Analytics -->
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "20be307a45424da09d830e0dfc48ad2b"}'></script>
-<!-- End Cloudflare Web Analytics -->
 </body>
 </html>

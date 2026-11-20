@@ -8,8 +8,10 @@ on:
       - "**/*.css"
       - "**/*.js"
       - "**/*.svg"
-      - "data/**"
       - "images/**"
+      - "fonts/**"
+      - "robots.txt"
+      - "sitemap.xml"
       - "CNAME"
       - "site.webmanifest"
       - ".nojekyll"
@@ -37,8 +39,8 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp index.html bank.html post.html blog.html privacy-policy.html data-deletion.html terms-of-service.html refund-policy.html shipping-policy.html style.css CNAME favicon.svg site.webmanifest .nojekyll _site/
-          cp -r js data images blog _site/
+          cp index.html bank.html post.html blog.html privacy-policy.html data-deletion.html terms-of-service.html refund-policy.html shipping-policy.html probiotic-complex.html multivitamins.html marine-collagen.html electrolytes-complex.html urinary-complex.html womens-ultra.html mens-premium.html 404.html robots.txt sitemap.xml style.css CNAME favicon.svg site.webmanifest .nojekyll _site/
+          cp -r js images blog fonts _site/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -1132,27 +1132,19 @@
         const el = document.createElement('article');
         el.className = 'card';
         const summaryLabel = (window.__t && __t('bank.summary')) || 'Summary:';
+        const readLabel = (window.__t && __t('bank.read')) || 'Read';
         el.innerHTML = `
-            <img class="bank-thumb" src="${getImagePath(index)}" alt="${escapeHtml(article.title)}" loading="lazy" onerror="this.remove()" />
-            <h3>${escapeHtml(article.title)}</h3>
-            <p><strong data-i18n="bank.summary">${summaryLabel}</strong> ${escapeHtml(article.summary || '')}</p>
+            <img class="bank-thumb" src="${getImagePath(index)}" alt="${escapeHtml(article.title)}" loading="lazy" width="800" height="450" />
+            <h3><a href="post.html?id=${index}">${escapeHtml(article.title)}</a></h3>
+            <p><strong>${summaryLabel}</strong> ${escapeHtml(article.summary || '')}</p>
+            <p><a href="post.html?id=${index}">${escapeHtml(readLabel)}</a></p>
         `;
-        // hide image if not found to avoid odd placeholders
         const img = el.querySelector('img.bank-thumb');
         if (img) {
             img.addEventListener('error', () => {
                 img.remove();
             }, { once: true });
         }
-        // Make card and "Read full article" navigate to dedicated page
-        el.dataset.index = String(index);
-        el.style.cursor = 'pointer';
-        el.addEventListener('click', (ev) => {
-            const a = ev.target && (ev.target.closest && ev.target.closest('a'));
-            if (a) return; // let anchors work
-            window.location.href = `post.html?id=${index}`;
-        });
-        // No inline "Read full article" as the whole card is clickable
         return el;
     }
 
