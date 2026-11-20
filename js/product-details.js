@@ -1,6 +1,94 @@
 /* Product detail modal for Formulas cards */
 (function () {
     const extras = {
+        probiotic: {
+            en: extraProbiotic({
+                facts: 'Supplement Facts',
+                containsCol: 'Contains',
+                oneCap: '1 capsule',
+                cfu: '*CFU — colony forming units'
+            }),
+            de: extraProbiotic({
+                facts: 'Nährwertangaben',
+                containsCol: 'Enthält',
+                oneCap: '1 Kapsel',
+                cfu: '*CFU — koloniebildende Einheiten'
+            }),
+            bg: extraProbiotic({
+                facts: 'Хранителна информация',
+                containsCol: 'Съдържа',
+                oneCap: '1 капсула',
+                cfu: '*CFU — колониеобразуващи единици'
+            }),
+            ro: extraProbiotic({
+                facts: 'Informații nutriționale',
+                containsCol: 'Conține',
+                oneCap: '1 capsulă',
+                cfu: '*CFU — unități formatoare de colonii'
+            }),
+            hu: extraProbiotic({
+                facts: 'Tápanyag-összetétel',
+                containsCol: 'Tartalmaz',
+                oneCap: '1 kapszula',
+                cfu: '*CFU — telepképző egységek'
+            }),
+            pl: extraProbiotic({
+                facts: 'Składniki odżywcze',
+                containsCol: 'Zawiera',
+                oneCap: '1 kapsułka',
+                cfu: '*CFU — jednostki tworzące kolonie'
+            })
+        },
+        multi: {
+            en: extraMulti({
+                facts: 'Supplement Facts',
+                ingredientsCol: 'Ingredients',
+                oneTab: '1 tablet',
+                nrvCol: '%NRV*',
+                nrv: '*NRV — Nutrient Reference Value',
+                a: 'Vitamin A', d3: 'Vitamin D3', e: 'Vitamin E', b1: 'Vitamin B1', b2: 'Vitamin B2', b3: 'Vitamin B3', b5: 'Vitamin B5', b6: 'Vitamin B6', biotin: 'Biotin (Vitamin B7/H)', folic: 'Folic Acid', b12: 'Vitamin B12', c: 'Vitamin C', k1: 'Vitamin K1', calcium: 'Calcium', copper: 'Copper', iron: 'Iron', magnesium: 'Magnesium', manganese: 'Manganese', molybdenum: 'Molybdenum', selenium: 'Selenium', zinc: 'Zinc', iodine: 'Iodine', chromium: 'Chromium', lutein: 'Lutein'
+            }),
+            de: extraMulti({
+                facts: 'Nährwertangaben',
+                ingredientsCol: 'Inhaltsstoffe',
+                oneTab: '1 Tablette',
+                nrvCol: '%NRV*',
+                nrv: '*NRV — Nährstoffbezugswert',
+                a: 'Vitamin A', d3: 'Vitamin D3', e: 'Vitamin E', b1: 'Vitamin B1', b2: 'Vitamin B2', b3: 'Vitamin B3', b5: 'Vitamin B5', b6: 'Vitamin B6', biotin: 'Biotin (Vitamin B7/H)', folic: 'Folsäure', b12: 'Vitamin B12', c: 'Vitamin C', k1: 'Vitamin K1', calcium: 'Calcium', copper: 'Kupfer', iron: 'Eisen', magnesium: 'Magnesium', manganese: 'Mangan', molybdenum: 'Molybdän', selenium: 'Selen', zinc: 'Zink', iodine: 'Jod', chromium: 'Chrom', lutein: 'Lutein'
+            }),
+            bg: extraMulti({
+                facts: 'Хранителна информация',
+                ingredientsCol: 'Съставки',
+                oneTab: '1 таблетка',
+                nrvCol: '%NRV*',
+                nrv: '*NRV — референтна хранителна стойност',
+                a: 'Витамин A', d3: 'Витамин D3', e: 'Витамин E', b1: 'Витамин B1', b2: 'Витамин B2', b3: 'Витамин B3', b5: 'Витамин B5', b6: 'Витамин B6', biotin: 'Биотин (витамин B7/H)', folic: 'Фолиева киселина', b12: 'Витамин B12', c: 'Витамин C', k1: 'Витамин K1', calcium: 'Калций', copper: 'Мед', iron: 'Желязо', magnesium: 'Магнезий', manganese: 'Манган', molybdenum: 'Молибден', selenium: 'Селен', zinc: 'Цинк', iodine: 'Йод', chromium: 'Хром', lutein: 'Лутеин'
+            }),
+            ro: extraMulti({
+                facts: 'Informații nutriționale',
+                ingredientsCol: 'Ingrediente',
+                oneTab: '1 comprimat',
+                nrvCol: '%VNR*',
+                nrv: '*VNR — valoare nutritivă de referință',
+                a: 'Vitamina A', d3: 'Vitamina D3', e: 'Vitamina E', b1: 'Vitamina B1', b2: 'Vitamina B2', b3: 'Vitamina B3', b5: 'Vitamina B5', b6: 'Vitamina B6', biotin: 'Biotină (vitamina B7/H)', folic: 'Acid folic', b12: 'Vitamina B12', c: 'Vitamina C', k1: 'Vitamina K1', calcium: 'Calciu', copper: 'Cupru', iron: 'Fier', magnesium: 'Magneziu', manganese: 'Mangan', molybdenum: 'Molibden', selenium: 'Seleniu', zinc: 'Zinc', iodine: 'Iod', chromium: 'Crom', lutein: 'Luteină'
+            }),
+            hu: extraMulti({
+                facts: 'Tápanyag-összetétel',
+                ingredientsCol: 'Összetevők',
+                oneTab: '1 tabletta',
+                nrvCol: '%NRV*',
+                nrv: '*NRV — tápanyag-referenciamennyiség',
+                a: 'A-vitamin', d3: 'D3-vitamin', e: 'E-vitamin', b1: 'B1-vitamin', b2: 'B2-vitamin', b3: 'B3-vitamin', b5: 'B5-vitamin', b6: 'B6-vitamin', biotin: 'Biotin (B7/H-vitamin)', folic: 'Folsav', b12: 'B12-vitamin', c: 'C-vitamin', k1: 'K1-vitamin', calcium: 'Kalcium', copper: 'Réz', iron: 'Vas', magnesium: 'Magnézium', manganese: 'Mangán', molybdenum: 'Molibdén', selenium: 'Szelén', zinc: 'Cink', iodine: 'Jód', chromium: 'Króm', lutein: 'Lutein'
+            }),
+            pl: extraMulti({
+                facts: 'Składniki odżywcze',
+                ingredientsCol: 'Składniki',
+                oneTab: '1 tabletka',
+                nrvCol: '%RWS*',
+                nrv: '*RWS — referencyjna wartość spożycia',
+                a: 'Witamina A', d3: 'Witamina D3', e: 'Witamina E', b1: 'Witamina B1', b2: 'Witamina B2', b3: 'Witamina B3', b5: 'Witamina B5', b6: 'Witamina B6', biotin: 'Biotyna (witamina B7/H)', folic: 'Kwas foliowy', b12: 'Witamina B12', c: 'Witamina C', k1: 'Witamina K1', calcium: 'Wapń', copper: 'Miedź', iron: 'Żelazo', magnesium: 'Magnez', manganese: 'Mangan', molybdenum: 'Molibden', selenium: 'Selen', zinc: 'Cynk', iodine: 'Jod', chromium: 'Chrom', lutein: 'Luteina'
+            })
+        },
         electrolytes: {
             en: extraElectrolytes({
                 facts: 'Supplement Facts',
@@ -646,6 +734,78 @@
             <p>${t.madeT}</p>
             <p>${t.questions}</p>
             <p class="blog-disclaimer">${t.disc}</p>
+        `;
+    }
+
+    function extraProbiotic(t) {
+        const rows = [
+            ['Lactobacillus acidophilus', '1.010 x 10⁹ CFU'],
+            ['Lactobacillus rhamnosus', '0.015 x 10⁹ CFU'],
+            ['Lactobacillus salivarius', '0.015 x 10⁹ CFU'],
+            ['Streptococcus thermophilus', '0.011 x 10⁹ CFU'],
+            ['Bifidobacterium bifidum', '0.015 x 10⁹ CFU']
+        ];
+        const body = rows.map(([name, amt]) => `<tr><td><em>${name}</em></td><td>${amt}</td></tr>`).join('');
+        return `
+            <h4>${t.facts}</h4>
+            <div class="blog-table-wrap">
+                <table class="blog-table product-detail__table">
+                    <thead>
+                        <tr>
+                            <th>${t.containsCol}</th>
+                            <th>${t.oneCap}</th>
+                        </tr>
+                    </thead>
+                    <tbody>${body}</tbody>
+                </table>
+            </div>
+            <p class="product-detail__nrv">${t.cfu}</p>
+        `;
+    }
+
+    function extraMulti(t) {
+        const rows = [
+            ['a', '800 μg', '100%'],
+            ['d3', '5 μg (200IU)', '100%'],
+            ['e', '15 mg', '125%'],
+            ['b1', '1,4 mg', '127%'],
+            ['b2', '1,75 mg', '125%'],
+            ['b3', '20 mg', '125%'],
+            ['b5', '7,5 mg', '125%'],
+            ['b6', '2 mg', '142%'],
+            ['biotin', '62,5 μg', '125%'],
+            ['folic', '200 μg', '100%'],
+            ['b12', '2,5 μg', '100%'],
+            ['c', '100 mg', '125%'],
+            ['k1', '30 μg', '40%'],
+            ['calcium', '260 mg', '32%'],
+            ['copper', '0,5 mg', '50%'],
+            ['iron', '5 mg', '35%'],
+            ['magnesium', '100 mg', '26%'],
+            ['manganese', '2 mg', '100%'],
+            ['molybdenum', '50 μg', '100%'],
+            ['selenium', '30 μg', '54%'],
+            ['zinc', '5 mg', '50%'],
+            ['iodine', '100 μg', '66,6%'],
+            ['chromium', '40 μg', '100%'],
+            ['lutein', '0,5 mg', '—']
+        ];
+        const body = rows.map(([key, amt, nrv]) => `<tr><td>${t[key]}</td><td>${amt}</td><td>${nrv}</td></tr>`).join('');
+        return `
+            <h4>${t.facts}</h4>
+            <div class="blog-table-wrap">
+                <table class="blog-table product-detail__table">
+                    <thead>
+                        <tr>
+                            <th>${t.ingredientsCol}</th>
+                            <th>${t.oneTab}</th>
+                            <th>${t.nrvCol}</th>
+                        </tr>
+                    </thead>
+                    <tbody>${body}</tbody>
+                </table>
+            </div>
+            <p class="product-detail__nrv">${t.nrv}</p>
         `;
     }
 
