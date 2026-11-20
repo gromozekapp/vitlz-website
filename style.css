@@ -1197,20 +1197,22 @@ body {
     margin-top: 2.5rem;
 }
 
-.about-gifs {
+.blog-gifs {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
-    margin-top: 1.25rem;
+    margin: 1.5rem auto 0;
+    max-width: 980px;
 }
 
-.about-gifs img {
+.blog-gifs img {
     width: 100%;
     height: auto;
     aspect-ratio: 1;
     object-fit: cover;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 .badge-card {
     background: rgba(17, 24, 39, 0.6);
@@ -1283,12 +1285,12 @@ body {
 @media (max-width: 900px) {
     .mega-title { font-size: 2.4rem; }
     .about-badges,
-    .about-gifs { grid-template-columns: repeat(2, 1fr); }
+    .blog-gifs { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 520px) {
     .mega-title { font-size: 2rem; }
     .about-badges,
-    .about-gifs { grid-template-columns: 1fr; }
+    .blog-gifs { grid-template-columns: 1fr; }
 }
 
 .contact-text a {

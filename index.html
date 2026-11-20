@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VITLZ Supplements — Probiotic, Multivitamins, Collagen</title>
-    <link rel="stylesheet" href="style.css?v=20261120g">
+    <link rel="stylesheet" href="style.css?v=20261120h">
     <link rel="icon" href="favicon.png?v=20261120f" type="image/png" sizes="192x192">
     <link rel="icon" href="favicon.svg?v=20261120f" type="image/svg+xml">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -335,12 +335,6 @@
                         </ul>
                     </div>
                 </div>
-                <div class="about-gifs">
-                    <img src="images/Probiotic_can.jpg" data-gif="images/gif/probiotic.gif" alt="VITLZ Probiotic Complex can" loading="lazy" class="rounded-lg shadow-lg hover-scale hero-gif" tabindex="0" />
-                    <img src="images/Multi_can.jpg" data-gif="images/gif/multivitamins.gif" alt="VITLZ Multivitamins and Minerals can" loading="lazy" class="rounded-lg shadow-lg hover-scale hero-gif" tabindex="0" />
-                    <img src="images/Womans_can.jpg" data-gif="images/gif/womens-ultra.gif" alt="VITLZ Women's Ultra Tablet can" loading="lazy" class="rounded-lg shadow-lg hover-scale hero-gif" tabindex="0" />
-                    <img src="images/Mans_can.jpg" data-gif="images/gif/mens-premium.gif" alt="VITLZ Men's Premium Complex Tablet can" loading="lazy" class="rounded-lg shadow-lg hover-scale hero-gif" tabindex="0" />
-                </div>
             </div>
         </section>
 
@@ -506,7 +500,7 @@
     <!-- JavaScript -->
     <script src="js/i18n.js?v=20261120a"></script>
     <script src="js/consent.js?v=20261120a"></script>
-    <script src="js/main.js?v=20261120a"></script>
+    <script src="js/main.js?v=20261120h"></script>
     <script src="js/product-details.js?v=20261120e"></script>
     
     <script>
@@ -552,53 +546,6 @@
                 }
             });
 
-            const heroGifImages = document.querySelectorAll('.hero-gif[data-gif]');
-            const supportsHover = window.matchMedia('(hover: hover)').matches;
-            heroGifImages.forEach(img => {
-                const staticSrc = img.getAttribute('src');
-                const gifSrc = img.getAttribute('data-gif');
-                let touchResetTimeout = null;
-
-                const activateGif = () => {
-                    if (gifSrc && img.src !== gifSrc) {
-                        img.src = gifSrc;
-                    }
-                };
-
-                const resetToStatic = () => {
-                    if (touchResetTimeout) {
-                        clearTimeout(touchResetTimeout);
-                        touchResetTimeout = null;
-                    }
-                    if (img.src !== staticSrc) {
-                        img.src = staticSrc;
-                    }
-                };
-
-                const scheduleTouchReset = () => {
-                    if (touchResetTimeout) {
-                        clearTimeout(touchResetTimeout);
-                    }
-                    touchResetTimeout = setTimeout(resetToStatic, 4500);
-                };
-
-                if (supportsHover) {
-                    img.addEventListener('mouseenter', activateGif);
-                    img.addEventListener('focus', activateGif);
-                    img.addEventListener('mouseleave', resetToStatic);
-                    img.addEventListener('blur', resetToStatic);
-                } else {
-                    img.addEventListener('touchstart', () => {
-                        activateGif();
-                        if (touchResetTimeout) {
-                            clearTimeout(touchResetTimeout);
-                            touchResetTimeout = null;
-                        }
-                    }, { passive: true });
-                    img.addEventListener('touchend', scheduleTouchReset, { passive: true });
-                    img.addEventListener('touchcancel', scheduleTouchReset, { passive: true });
-                }
-            });
         });
     </script>
 </body>

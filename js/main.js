@@ -21,7 +21,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    initHeroGifs();
     initMobileNavPicker();
+
+    function initHeroGifs() {
+        const heroGifImages = document.querySelectorAll('.hero-gif[data-gif]');
+        if (!heroGifImages.length) return;
+        const supportsHover = window.matchMedia('(hover: hover)').matches;
+        heroGifImages.forEach((img) => {
+            const staticSrc = img.getAttribute('src');
+            const gifSrc = img.getAttribute('data-gif');
+            let touchResetTimeout = null;
+
+            const activateGif = () => {
+                if (gifSrc && img.getAttribute('src') !== gifSrc) {
+                    img.setAttribute('src', gifSrc);
+                }
+            };
+
+            const resetToStatic = () => {
+                if (touchResetTimeout) {
+                    clearTimeout(touchResetTimeout);
+                    touchResetTimeout = null;
+                }
+                if (img.getAttribute('src') !== staticSrc) {
+                    img.setAttribute('src', staticSrc);
+                }
+            };
+
+            const scheduleTouchReset = () => {
+                if (touchResetTimeout) {
+                    clearTimeout(touchResetTimeout);
+                }
+                touchResetTimeout = setTimeout(resetToStatic, 4500);
+            };
+
+            if (supportsHover) {
+                img.addEventListener('mouseenter', activateGif);
+                img.addEventListener('focus', activateGif);
+                img.addEventListener('mouseleave', resetToStatic);
+                img.addEventListener('blur', resetToStatic);
+            } else {
+                img.addEventListener('touchstart', () => {
+                    activateGif();
+                    if (touchResetTimeout) {
+                        clearTimeout(touchResetTimeout);
+                        touchResetTimeout = null;
+                    }
+                }, { passive: true });
+                img.addEventListener('touchend', scheduleTouchReset, { passive: true });
+                img.addEventListener('touchcancel', scheduleTouchReset, { passive: true });
+            }
+        });
+    }
+
     function initMobileNavPicker() {
         const pickers = document.querySelectorAll('.mobile-nav-select');
         if (!pickers.length) return;
