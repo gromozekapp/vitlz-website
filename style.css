@@ -1589,7 +1589,10 @@ body {
 }
 
 .footer-logo {
-    display: inline-flex;
+    display: block;
+    width: 200px;
+    height: calc(200px * 127 / 486);
+    overflow: hidden;
     line-height: 0;
 }
 
@@ -1597,7 +1600,8 @@ body {
     display: block;
     width: 200px;
     height: auto;
-    border-radius: 8px;
+    margin-top: calc(200px * -54 / 486);
+    border-radius: 0;
 }
 
 .footer-copyright p {
