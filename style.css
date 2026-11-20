@@ -1155,6 +1155,26 @@ body {
 .dark-section .contact-text a:hover {
     color: #a78bfa;
 }
+.contact-emails {
+    list-style: none;
+    margin: 1.25rem auto 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem 1.5rem;
+    max-width: 720px;
+}
+.contact-emails a {
+    color: #67e8f9;
+    text-decoration: none;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    transition: color 0.3s;
+}
+.contact-emails a:hover {
+    color: #a78bfa;
+}
 
 /* ----- About: EU QUALITY section ----- */
 .mega-title {
