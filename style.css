@@ -1512,10 +1512,10 @@ body {
 
 .footer-content {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: center;
-    column-gap: 2rem;
-    row-gap: 1rem;
+    grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+    align-items: start;
+    column-gap: 2.5rem;
+    row-gap: 1.25rem;
     position: relative;
     z-index: 2;
 }
@@ -1523,8 +1523,11 @@ body {
 .footer-links {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.75rem 1.25rem;
     grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: 0.5rem;
 }
 
 .footer-links a,
@@ -1542,7 +1545,11 @@ body {
     font-style: normal;
     color: #cbd5e1;
     line-height: 1.55;
-    grid-column: 1 / -1;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
+    text-align: right;
+    margin: 0;
 }
 
 .footer-imprint a {
@@ -1574,8 +1581,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-self: start;
     gap: 0.65rem;
     min-width: 0;
+    grid-column: 1;
+    grid-row: 1;
 }
 
 .footer-logo {
@@ -1602,9 +1612,11 @@ body {
 }
 
 .footer-disclaimer {
-    justify-self: end;
+    justify-self: start;
     max-width: 36rem;
-    text-align: right;
+    text-align: left;
+    grid-column: 1;
+    grid-row: 2;
 }
 
 .footer-disclaimer p {
@@ -1762,18 +1774,45 @@ body {
     
     .footer-content {
         grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
+    }
+
+    .footer-copyright,
+    .footer-disclaimer,
+    .footer-imprint,
+    .footer-links {
+        grid-column: 1;
     }
 
     .footer-copyright {
-        align-items: center;
+        grid-row: 1;
+        align-items: flex-start;
     }
 
     .footer-disclaimer {
-        justify-self: center;
+        grid-row: 2;
+    }
+
+    .footer-imprint {
+        grid-row: 3;
+    }
+
+    .footer-links {
+        grid-row: 4;
+    }
+
+    .footer-imprint {
+        justify-self: start;
+        text-align: left;
+    }
+
+    .footer-disclaimer {
+        justify-self: start;
         max-width: none;
-        text-align: center;
+        text-align: left;
+    }
+
+    .footer-links {
+        justify-content: center;
     }
 }
 
