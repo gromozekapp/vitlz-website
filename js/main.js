@@ -149,21 +149,60 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
     
-    // Mobile menu toggle
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const header = document.querySelector('.site-header');
     const siteNavigation = document.querySelector('.site-navigation');
-    
+    let mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+
+    function setNavOpen(open) {
+        if (!header || !siteNavigation) return;
+        header.classList.toggle('is-nav-open', open);
+        document.body.classList.toggle('nav-open', open);
+        if (mobileMenuToggle) {
+            mobileMenuToggle.classList.toggle('is-open', open);
+            mobileMenuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            mobileMenuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        }
+        siteNavigation.classList.toggle('active', open);
+    }
+
+    if (header && siteNavigation && !mobileMenuToggle) {
+        mobileMenuToggle = document.createElement('button');
+        mobileMenuToggle.type = 'button';
+        mobileMenuToggle.className = 'mobile-menu-toggle';
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenuToggle.setAttribute('aria-label', 'Open menu');
+        mobileMenuToggle.innerHTML = '<span class="mobile-menu-toggle__bar"></span><span class="mobile-menu-toggle__bar"></span><span class="mobile-menu-toggle__bar"></span>';
+        const branding = header.querySelector('.site-branding');
+        if (branding) {
+            branding.appendChild(mobileMenuToggle);
+        } else {
+            header.querySelector('.container')?.appendChild(mobileMenuToggle);
+        }
+    }
+
     if (mobileMenuToggle && siteNavigation) {
         mobileMenuToggle.addEventListener('click', function() {
-            siteNavigation.classList.toggle('active');
-            this.classList.toggle('active');
-            const expanded = siteNavigation.classList.contains('active') ? 'true' : 'false';
-            this.setAttribute('aria-expanded', expanded);
+            setNavOpen(!header.classList.contains('is-nav-open'));
+        });
+        siteNavigation.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', function() {
+                setNavOpen(false);
+            });
+        });
+        header.querySelectorAll('.header-cta a').forEach((link) => {
+            link.addEventListener('click', function() {
+                setNavOpen(false);
+            });
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') setNavOpen(false);
+        });
+        document.addEventListener('click', function(e) {
+            if (!header.classList.contains('is-nav-open')) return;
+            if (!header.contains(e.target)) setNavOpen(false);
         });
     }
     
-    // Header scroll effect
-    const header = document.querySelector('.site-header');
     let lastScrollTop = 0;
     // Fallback language switch binding (in case i18n init missed)
     const langSwitcher = document.getElementById('lang-switcher');
@@ -178,6 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
+        if (!header) return;
         if (scrollTop > 100) {
             header.classList.add('sticky-header');
         } else {

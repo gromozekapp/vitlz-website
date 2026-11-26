@@ -518,14 +518,57 @@ body {
     color: #ffffff;
 }
 
+.mobile-menu-toggle {
+    display: none;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.45);
+    background: rgba(15,23,42,0.55);
+    cursor: pointer;
+}
+
+.mobile-menu-toggle__bar {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin: 3px auto;
+    background: #f8fafc;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mobile-menu-toggle.is-open .mobile-menu-toggle__bar:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+}
+.mobile-menu-toggle.is-open .mobile-menu-toggle__bar:nth-child(2) {
+    opacity: 0;
+}
+.mobile-menu-toggle.is-open .mobile-menu-toggle__bar:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
+}
+
 @media (max-width: 768px) {
     .site-header .container {
-        justify-content: center;
-        gap: 1.25rem;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 0.75rem;
+        position: relative;
+    }
+    .site-header.is-nav-open .container {
+        flex-wrap: wrap;
     }
     .site-branding {
         width: 100%;
+        flex: 1 1 100%;
+        min-width: 0;
         justify-content: space-between;
+        gap: 0.6rem;
     }
     .site-logo__img {
         width: 168px;
@@ -537,6 +580,10 @@ body {
     }
     .mobile-nav-picker {
         display: none;
+    }
+    .mobile-menu-toggle {
+        display: inline-flex;
+        flex-direction: column;
     }
 }
 
@@ -1736,12 +1783,14 @@ body {
     
     .site-header .container {
         position: relative;
-        align-items: flex-start;
+        align-items: center;
     }
     
     .site-navigation {
+        display: none;
         flex: 1 1 100%;
-        background: rgba(15, 23, 42, 0.75);
+        width: 100%;
+        background: rgba(15, 23, 42, 0.92);
         -webkit-backdrop-filter: blur(14px);
         backdrop-filter: blur(14px);
         border-radius: 16px;
@@ -1752,7 +1801,11 @@ body {
         overflow-y: auto;
         overflow-x: hidden;
         overscroll-behavior: contain;
-        margin-top: 0.5rem;
+        margin-top: 0.25rem;
+    }
+
+    .site-header.is-nav-open .site-navigation {
+        display: block;
     }
     
     .site-navigation ul {
@@ -1768,9 +1821,17 @@ body {
     }
     
     .header-cta {
-        display: flex;
+        display: none;
         width: 100%;
         justify-content: center;
+    }
+
+    .site-header.is-nav-open .header-cta {
+        display: flex;
+    }
+
+    body.nav-open {
+        overflow: hidden;
     }
     
     .products-grid {
